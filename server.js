@@ -48,15 +48,15 @@ app.post("/hook", (req, res) => {
 //our webhook is triggered by the post request above
 io.on("connection", (socket) => {
   socket.on("create", (data) => {
-    generateEmail(data.form_response).then((generatedEmail) => {
-      io.emit("typeform-incoming", {
-        formToken: data.form_response.token,
-        generatedEmail: generatedEmail,
-      });
-      if (app.settings.env === "development") {
-        // writeDataToExampleResponsesFile(data);
-      }
-    });
+    // generateEmail(data.form_response).then((generatedEmail) => {
+    //   io.emit("typeform-incoming", {
+    //     formToken: data.form_response.token,
+    //     generatedEmail: generatedEmail,
+    //   });
+    // });
+    if (app.settings.env === "development") {
+      writeDataToExampleResponsesFile(data);
+    }
   });
 });
 
