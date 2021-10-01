@@ -34,7 +34,7 @@ Your terminal should present you with two urls in the form:
 
 `https://[random url].ngrok.io/hook`
 
--Click 'send test request'. If it is working, you should see a 200 OK status response in Typeform's webhook interface and also in the terminal in which you are running Ngrok from.
+-Navigate to 'View Deliveries' then click 'send test request'. If it is working, you should see a 200 OK status response in Typeform's webhook interface and also in the terminal in which you are running Ngrok from.
 
 Ngrok generates a random URL each time it is started. To get a consitstent URL name, you must buy a subscription to Ngrok ~$7/month. You can then run the following command:
 
