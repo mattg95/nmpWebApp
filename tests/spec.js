@@ -6,6 +6,11 @@ const fs = require("fs");
 
 const negativeResult = require("./mockTypeformResponses/NegativeResult.json");
 const allToryResult = require("./mockTypeformResponses/AllTory.json");
+const jewishResponse = require("./exampleTypeformResponses/Jewish.json");
+const otherReligionResponse = require("./exampleTypeformResponses/OtherReligion.json");
+const nonToryResponse = require("./exampleTypeformResponses/NotTory.json");
+const labourMpResponse = require("./exampleTypeformResponses/LabourMP.json");
+const nonValidPostcodeResponse = require("./exampleTypeformResponses/NonValidPostcode.json");
 
 const { motivationHandler } = require("../emailGenerator/responseHandlers.js");
 const { questionKeys } = require("../emailGenerator/keys.js");
@@ -110,27 +115,27 @@ describe("generateEmail", () => {
   let randomResponse;
   let negativeEmail;
   let allToryEmail;
-  let nonToryMpEmail;
+  let labourMpEmail;
   let nonToryEmail;
   let jewishEmail;
   let otherReligionEmail;
   let nonValidPostcodeEmail;
   let covidMotivationsEmail;
-  let phoneNumberIncludedEmail;
+  let nonValidPostcodeEmail;
 
   before(async function () {
     randomResponse = await getRandomEmail();
     negativeEmail = await generateEmail(negativeResult.form_response);
     allToryEmail = await generateEmail(allToryResult.form_response);
-    // nonToryMpEmail = await generateEmail(nonToryMpCovidResponse.form_response);
-    // nonToryEmail = await generateEmail(nonToryDefenseResponse.form_response);
-    // jewishEmail = await generateEmail(jewishMorallyRightResponse.form_response);
-    // otherReligionEmail = await generateEmail(
-    //   otherReligionVaccinesResponse.form_response
-    // );
-    // nonValidPostcodeEmail = await generateEmail(
-    //   nonValidPostcodeBritainSecurityResearchResponse.form_response
-    // );
+    labourMpEmail = await generateEmail(labourMpResponse.form_response);
+    nonToryEmail = await generateEmail(nonToryResponse.form_response);
+    jewishEmail = await generateEmail(jewishResponse.form_response);
+    otherReligionEmail = await generateEmail(
+      otherReligionResponse.form_response
+    );
+    nonValidPostcodeEmail = await generateEmail(
+      nonValidPostcodeResponse.form_response
+    );
   });
   it("should return an object with keys 'body' and 'subject'", () => {
     expect(randomResponse).to.have.keys(
@@ -195,14 +200,14 @@ describe("generateEmail", () => {
   it("should not include escaped 'newline' characters", () => {
     expect(randomResponse.body).not.to.contain("\\n");
   });
-  it("negative responses to question 1 (supporting aid) should return a blank", () => {
+  it("negative responses to question 1 (supporting equity) should return a blank", () => {
     expect(negativeEmail.body).to.equal("");
     expect(negativeEmail.subject).to.equal("");
   });
   it("non-conservative responses should not reference that in the email", () => {
     expect(nonToryEmail.body.search(/member/gi)).to.equal(-1);
   });
-  it.only("Conservative responses to Conservative MPs should reference that in the email", () => {
+  it("Conservative responses to Conservative MPs should reference that in the email", () => {
     expect(allToryEmail.body.search(/conservative/gi)).to.not.equal(-1);
   });
   it("works even if a user inputs an invalid postcode", () => {
