@@ -1,19 +1,15 @@
 process.env.NODE_ENV = "test";
 const { expect } = require("chai");
 const { generateEmail } = require("../emailGenerator/index.js");
-const { getMpByPostcode } = require("../api-calls");
 const fs = require("fs");
 
 const negativeResult = require("./mockTypeformResponses/NegativeResult.json");
 const allToryResult = require("./mockTypeformResponses/AllTory.json");
-const jewishResponse = require("./exampleTypeformResponses/Jewish.json");
-const otherReligionResponse = require("./exampleTypeformResponses/OtherReligion.json");
-const nonToryResponse = require("./exampleTypeformResponses/NotTory.json");
-const labourMpResponse = require("./exampleTypeformResponses/LabourMP.json");
-const nonValidPostcodeResponse = require("./exampleTypeformResponses/NonValidPostcode.json");
-
-const { motivationHandler } = require("../emailGenerator/responseHandlers.js");
-const { questionKeys } = require("../emailGenerator/keys.js");
+const jewishResponse = require("./mockTypeformResponses/Jewish.json");
+const otherReligionResponse = require("./mockTypeformResponses/OtherReligion.json");
+const nonToryResponse = require("./mockTypeformResponses/NotTory.json");
+const labourMpResponse = require("./mockTypeformResponses/LabourMP.json");
+const nonValidPostcodeResponse = require("./mockTypeformResponses/NonValidPostcode.json");
 
 const mockTypeformResponses = [];
 var normalizedPath = require("path").join(__dirname, "mockTypeformResponses");
@@ -31,86 +27,6 @@ const getRandomEmail = () => {
   return generateEmail(randomResponse.json.form_response);
 };
 
-describe("/api/postcode", () => {
-  it("should return expected MP details for DL6 2NJ", async () => {
-    result = await getMpByPostcode("DL6 2NJ");
-    expect(result.full_name).to.equal("Rishi Sunak");
-    expect(result.constituency).to.equal("Richmond (Yorks)");
-    expect(result.party).to.equal("Conservative");
-    expect(result.mpEmailAddress).to.equal("rishi.sunak.mp@parliament.uk");
-  });
-  it("should return expected MP details for s6 2PN", async () => {
-    result = await getMpByPostcode("s6 2pn");
-    expect(result.full_name).to.equal("Paul Blomfield");
-    expect(result.constituency).to.equal("Sheffield Central");
-    expect(result.party).to.equal("Labour");
-    expect(result.mpEmailAddress).to.equal("paul.blomfield.mp@parliament.uk");
-  });
-  it("should correctly handle errors for an invalid postcode", async () => {
-    result = await getMpByPostcode("marmite");
-    expect(result.error).to.equal("Could not retrieve MP");
-    secondResult = await getMpByPostcode("S62 2PB");
-    expect(secondResult.error).to.equal("Could not retrieve MP");
-  });
-  it("should return the 2021 current MP", async () => {
-    result = await getMpByPostcode("EH39 4PS");
-    expect(result.full_name).to.equal("Kenny MacAskill");
-    expect(result.full_name).to.not.equal("George Kerevan");
-    secondResult = await getMpByPostcode("M54YD");
-    expect(secondResult.full_name).to.equal("Rebecca Long Bailey");
-    expect(secondResult.full_name).to.not.equal("Hazel Blears");
-  });
-});
-
-describe("emailGeneratorFuncs", () => {
-  let covidResponse;
-  before(async function () {
-    let {
-      answers,
-      definition: { fields },
-    } = nonToryMpCovidResponse.form_response;
-    covidResponse = await motivationHandler(
-      questionKeys.motivation,
-      fields,
-      answers
-    );
-  });
-  it("should return synonyms for a 'Covid' motivations choice", () => {
-    const regex = /covid|pandemic|poverty/gi;
-    expect(regex.test(covidResponse)).to.be.true;
-  });
-  before(async function () {
-    let {
-      answers,
-      definition: { fields },
-    } = nonValidPostcodeBritainSecurityResearchResponse.form_response;
-    researchResponse = await motivationHandler(
-      questionKeys.motivation,
-      fields,
-      answers
-    );
-  });
-  it("should return synonyms for a 'research' motivations choice", () => {
-    const regex = /research/gi;
-    expect(regex.test(researchResponse)).to.be.true;
-  });
-  before(async function () {
-    let {
-      answers,
-      definition: { fields },
-    } = allToryResult.form_response;
-    yemenResponse = await motivationHandler(
-      questionKeys.motivation,
-      fields,
-      answers
-    );
-  });
-  it("should return synonyms for a 'Yemen' motivations choice", () => {
-    const regex = /yemen/gi;
-    expect(regex.test(yemenResponse)).to.be.true;
-  });
-});
-
 describe("generateEmail", () => {
   let randomResponse;
   let negativeEmail;
@@ -121,7 +37,6 @@ describe("generateEmail", () => {
   let otherReligionEmail;
   let nonValidPostcodeEmail;
   let covidMotivationsEmail;
-  let nonValidPostcodeEmail;
 
   before(async function () {
     randomResponse = await getRandomEmail();
