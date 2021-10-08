@@ -4,16 +4,11 @@ const { generateEmail } = require("../emailGenerator/index.js");
 const { getMpByPostcode } = require("../api-calls");
 const fs = require("fs");
 
-const negativeResult = require("./mockTypeformResponses/negativeResult.json");
-const jewishMorallyRightResponse = require("./mockTypeformResponses/jewish-morallyRight.json");
-const otherReligionVaccinesResponse = require("./mockTypeformResponses/otherReligion-vaccines.json");
-const nonToryDefenseResponse = require("./mockTypeformResponses/nonTory-defense.json");
-const nonToryMpCovidResponse = require("./mockTypeformResponses/nonToryMp-covid.json");
-const allToryYemenResponse = require("./mockTypeformResponses/allTory-yemen.json");
-const nonValidPostcodeBritainSecurityResearchResponse = require("./mockTypeformResponses/nonValidPostcode-britainSecurityResearch.json");
-const phoneNumberResponse = require("./mockTypeformResponses/phoneNumberResponse.json");
+const negativeResult = require("./mockTypeformResponses/NegativeResult.json");
+const allToryResult = require("./mockTypeformResponses/AllTory.json");
 
 const { motivationHandler } = require("../emailGenerator/responseHandlers.js");
+const { questionKeys } = require("../emailGenerator/keys.js");
 
 const mockTypeformResponses = [];
 var normalizedPath = require("path").join(__dirname, "mockTypeformResponses");
@@ -69,7 +64,11 @@ describe("emailGeneratorFuncs", () => {
       answers,
       definition: { fields },
     } = nonToryMpCovidResponse.form_response;
-    covidResponse = await motivationHandler("wKGNjgRDml1H", fields, answers);
+    covidResponse = await motivationHandler(
+      questionKeys.motivation,
+      fields,
+      answers
+    );
   });
   it("should return synonyms for a 'Covid' motivations choice", () => {
     const regex = /covid|pandemic|poverty/gi;
@@ -80,7 +79,11 @@ describe("emailGeneratorFuncs", () => {
       answers,
       definition: { fields },
     } = nonValidPostcodeBritainSecurityResearchResponse.form_response;
-    researchResponse = await motivationHandler("wKGNjgRDml1H", fields, answers);
+    researchResponse = await motivationHandler(
+      questionKeys.motivation,
+      fields,
+      answers
+    );
   });
   it("should return synonyms for a 'research' motivations choice", () => {
     const regex = /research/gi;
@@ -90,8 +93,12 @@ describe("emailGeneratorFuncs", () => {
     let {
       answers,
       definition: { fields },
-    } = allToryYemenResponse.form_response;
-    yemenResponse = await motivationHandler("wKGNjgRDml1H", fields, answers);
+    } = allToryResult.form_response;
+    yemenResponse = await motivationHandler(
+      questionKeys.motivation,
+      fields,
+      answers
+    );
   });
   it("should return synonyms for a 'Yemen' motivations choice", () => {
     const regex = /yemen/gi;
@@ -114,22 +121,16 @@ describe("generateEmail", () => {
   before(async function () {
     randomResponse = await getRandomEmail();
     negativeEmail = await generateEmail(negativeResult.form_response);
-    allToryEmail = await generateEmail(allToryYemenResponse.form_response);
-    nonToryMpEmail = await generateEmail(nonToryMpCovidResponse.form_response);
-    nonToryEmail = await generateEmail(nonToryDefenseResponse.form_response);
-    jewishEmail = await generateEmail(jewishMorallyRightResponse.form_response);
-    otherReligionEmail = await generateEmail(
-      otherReligionVaccinesResponse.form_response
-    );
-    nonValidPostcodeEmail = await generateEmail(
-      nonValidPostcodeBritainSecurityResearchResponse.form_response
-    );
-    covidMotivationsEmail = await generateEmail(
-      nonToryMpCovidResponse.form_response
-    );
-    phoneNumberIncludedEmail = await generateEmail(
-      phoneNumberResponse.form_response
-    );
+    allToryEmail = await generateEmail(allToryResult.form_response);
+    // nonToryMpEmail = await generateEmail(nonToryMpCovidResponse.form_response);
+    // nonToryEmail = await generateEmail(nonToryDefenseResponse.form_response);
+    // jewishEmail = await generateEmail(jewishMorallyRightResponse.form_response);
+    // otherReligionEmail = await generateEmail(
+    //   otherReligionVaccinesResponse.form_response
+    // );
+    // nonValidPostcodeEmail = await generateEmail(
+    //   nonValidPostcodeBritainSecurityResearchResponse.form_response
+    // );
   });
   it("should return an object with keys 'body' and 'subject'", () => {
     expect(randomResponse).to.have.keys(
@@ -137,7 +138,7 @@ describe("generateEmail", () => {
       "subject",
       "greeting",
       "mpData",
-      "supportsAid"
+      "supportEquity"
     );
     expect(Object.keys(randomResponse).length).to.equal(5);
   });
@@ -201,10 +202,7 @@ describe("generateEmail", () => {
   it("non-conservative responses should not reference that in the email", () => {
     expect(nonToryEmail.body.search(/member/gi)).to.equal(-1);
   });
-  it("Conservative responses to Conservative MPs should reference that in the email", () => {
-    expect(allToryEmail.body.search(/conservative/gi)).to.not.equal(-1);
-  });
-  it("Conservative responses to Conservative MPs should reference that in the email", () => {
+  it.only("Conservative responses to Conservative MPs should reference that in the email", () => {
     expect(allToryEmail.body.search(/conservative/gi)).to.not.equal(-1);
   });
   it("works even if a user inputs an invalid postcode", () => {
@@ -219,10 +217,5 @@ describe("generateEmail", () => {
   it("should include reference to a user's motivation where they have put that in", () => {
     const regex = /covid|pandemic|poverty/gi;
     expect(regex.test(covidMotivationsEmail.body)).to.be.true;
-  });
-  it("should include a user's phone number when the user adds it", () => {
-    expect(
-      phoneNumberIncludedEmail.body.search(/[+]447401234566/)
-    ).to.not.equal(-1);
   });
 });
