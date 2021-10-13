@@ -1,36 +1,183 @@
 {
-  "subject": [],
+  "subject": [
+    "Re: Improving global access to vaccine equity.",
+    "Please improve global vaccine equity.",
+    "Please provide Vaccines for the world.",
+    "Provide COVID jabs for everyone in the world.",
+    "TRIPS waiver now. ",
+    "Please support a TRIPS waiver.",
+    "COVID-19 vaccine patent waiver now.",
+    "COVID vaccine equity. ",
+    "Please support COVID-19 vaccine equity. ",
+    "Let’s protect the world from COVID-19.",
+    "Please help protect the world from COVID-19. ",
+    "Let’s beat COVID-19.",
+    "Please help in the global fight against COVID-19.",
+    "Please help global vaccine manufacture. ",
+    "Allow global COVID-19 vaccine manufacturing.",
+    "Allow COVID-19 vaccine manufacturing globally.",
+    "Allow COVID vaccine manufacturing everywhere in the world.",
+    "Global vaccine equity",
+    "Boosting global vaccine manufacturing capabilities.",
+    "Let developing countries produce their own COVID-19 vaccines.",
+    "Support global vaccine manufacturing",
+    "Let’s get a TRIPS waiver done",
+    "Can you help boost global COVID vaccine manufacturing?",
+    "COVID-19 vaccine equity",
+    "COVID vaccine patent waiver",
+    "Let developing countries manufacture COVID-19 vaccines.",
+    "TRIPS waiver",
+    "Improving global vaccine production",
+    "Please help to push for a vaccine patent waiver",
+    "Please help to push for a TRIPS waiver.",
+    "Vaccine Equity ",
+    "Global vaccines",
+    "Global vaccination",
+    "International vaccines",
+    "International vaccination",
+    "Universal vaccines",
+    "Universal vaccination",
+    "Support for a TRIPS waiver ",
+    " Support for vaccine equity",
+    "Support for global vaccination ",
+    "Support for global vaccine equity ",
+    "Support for global vaccines",
+    "Support for international vaccination ",
+    "Support for international vaccine equity ",
+    "Support for universal vaccination",
+    "Support for universal vaccine equity",
+    "Support for action on a TRIPS waiver",
+    "Support for action on vaccine equity",
+    "Support for action on global vaccination",
+    "Support for action on global vaccine equity",
+    "Support for action on global vaccines",
+    "Support for action on international vaccination",
+    "Support for action on international vaccine equity",
+    "Support for action on universal vaccination",
+    "Support for action on universal vaccines",
+    "Request for a TRIPS waiver",
+    "Request for vaccine equity",
+    "Request for global vaccination",
+    "Request for global vaccines",
+    "Request for global vaccine equity",
+    "Request for international vaccination",
+    "Request for international vaccine equity",
+    "Request for universal vaccination",
+    "Request for universal vaccines",
+    "Request for action on a TRIPS waiver",
+    "Request for action on vaccine equity",
+    "Request for action on global vaccination",
+    "Request for action on global vaccines",
+    "Request for action on global vaccine equity",
+    "Request for action on international vaccination",
+    "Request for action on international vaccine equity",
+    "Request for action on universal vaccination",
+    "Request for action on universal vaccines",
+    "Call for a TRIPS waiver",
+    "Call for vaccine equity",
+    "Call for global vaccination",
+    "Call for global vaccines",
+    "Call for global vaccine equity",
+    "Call for international vaccination",
+    "Call for international vaccine equity",
+    "Call for universal vaccination",
+    "Call for universal vaccines",
+    "Call for action on a TRIPS waiver",
+    "Call for action on vaccine equity",
+    "Call for action on global vaccination",
+    "Call for action on global vaccines",
+    "Call for action on global vaccine equity",
+    "Call for action on international vaccination",
+    "Call for action on international vaccine equity",
+    "Call for action on universal vaccination",
+    "Call for action on universal vaccines",
+    "TRIPS waiver please ",
+    "Vaccine equity please ",
+    "Global vaccination please",
+    "Global vaccines please ",
+    "Global vaccine equity please",
+    "International vaccine equity please",
+    "International vaccines please",
+    "International vaccination please",
+    "Universal vaccines please",
+    "Universal vaccination please",
+    "TRIPS waiver request",
+    "Vaccine equity request",
+    "Global vaccination request",
+    "Global vaccines request",
+    "Global vaccine equity request",
+    "International vaccine equity request",
+    "International vaccines request",
+    "International vaccination request",
+    "Universal vaccines request",
+    "Universal vaccination request",
+    "TRIPS waiver support",
+    "Vaccine equity support",
+    "Global vaccination support",
+    "Global vaccines support",
+    "Global vaccine equity support",
+    "International vaccine equity support",
+    "International vaccines support",
+    "International vaccination support",
+    "Universal vaccines support",
+    "Universal vaccination support"
+  ],
   "survey": {
     "motivation": [
       {
         "response": "People should all have the right to access the vaccine if they so choose, regardless of their background or wealth.",
-        "synonyms": []
+        "synonyms": [
+          "Where we are born is a matter of luck, and luck shouldn’t determine whether someone can access a COVID vaccine.",
+          "We are lucky to live in an affluent country with a great healthcare system. Others are less lucky but should equally be able to get a COVID jab.",
+          "The UK is a rich country with a wonderful public healthcare system; other countries don’t have the same resources but should still be able to vaccinate their populations against COVID-19."
+        ]
       },
 
       {
         "response": "It supports those who are most vulnerable.",
-        "synonyms": []
+        "synonyms": [
+          "While people in the UK are getting COVID booster shots there are countries in which vulnerable people and healthcare workers have not even received their first doses.",
+          "Some people in the UK are now being offered booster shots while in poorer countries elderly people and healthcare professionals sometimes have not even had one shot; we need to help protect the most vulnerable people, globally speaking. "
+        ]
       },
       {
         "response": "Countries can't 'reopen' without equal access to vaccines",
-        "synonyms": []
+        "synonyms": [
+          "Many people here in the UK have missed travelling abroad - to visit friends or family, or for holidays - the sooner the share of vaccinated people increases globally, the sooner we will be able to travel with fewer restrictions. ",
+          "Living in our globalised world is best when we can travel without restrictions, and this will only be possible again once more people are vaccinated abroad. "
+        ]
       },
 
       {
         "response": "Pandemics are a global problem and need a global solution.",
-        "synonyms": []
+        "synonyms": [
+          "Pandemics, by their very nature, are global problems that require global solutions.",
+          "Pandemics affect the whole globe and therefore require international efforts and globalised solutions."
+        ]
       },
       {
         "response": "Wealthy countries should support developing countries which can't afford vaccines.",
-        "synonyms": []
+        "synonyms": [
+          "As an advanced, developed nation, the UK has a moral duty to support developing countries to vaccinate their populations against COVID-19.",
+          "As a rich country, the UK has a moral duty to support other countries, especially those in the Global South, get access to COVID vaccines.",
+          "The UK, as a developed nation, has an ethical obligation to help other nations manufacture COVID vaccines to immunise their populations."
+        ]
       },
       {
         "response": "It improves vaccine production and medical research.",
-        "synonyms": []
+        "synonyms": [
+          "Giving countries in the Global South the permission to produce COVID vaccines now might improve vaccine research and production capabilities in the future. ",
+          "Allowing developing countries to produce COVID vaccines now might improve vaccine research and production capabilities in the future. "
+        ]
       },
       {
         "response": "Vaccination is not as effective if sections of society, or entire countries are missed out.",
-        "synonyms": []
+        "synonyms": [
+          "Viruses do not respect national borders. To achieve global levels of herd immunity people from all over the world need to be immunised against COVID-19. ",
+          "High levels of vaccine availability and uptake in individual countries is not enough to make the vaccine efficient on a global scale. ",
+          "High vaccination rates in only a few countries is not enough to make the COVID vaccine efficient on a global scale.",
+          "High vaccination rates in only a few countries is not enough to make the COVID vaccine as efficient as it needs to be on a global scale."
+        ]
       },
       {
         "response": "Corporations have a responsibility to share vaccines",
@@ -133,11 +280,30 @@
     "covidEffects": [
       {
         "response": "I feel that COVID has had a very deep, significant impact on my life",
-        "synonyms": []
+        "synonyms": [
+          "COVID has really hit me hard, on a personal level. ",
+          "The pandemic has affected me deeply. ",
+          "The COVID pandemic is still having significant consequences in my life. ",
+          "COVID has forced me to change the way I look at life. ",
+          "The pandemic has been very difficult for me. ",
+          "The changes brought about by this global pandemic have had a huge impact on my life."
+        ]
       },
       {
         "response": "I feel that COVID has had an impact on my life (but not a very deep, significant impact)",
-        "synonyms": []
+        "synonyms": [
+          "Like for so many people, the pandemic has not been easy for me personally. ",
+          "COVID has not passed me by. ",
+          "The experience of this pandemic has not left me untouched. "
+        ]
+      },
+      {
+        "response": "COVID has had a minimal/zero impact on my life",
+        "synonyms": [
+          "Luckily, COVID has not affected me much personally.",
+          "I’ve been lucky in that the pandemic hasn’t had a big impact on my own life.",
+          "Touch wood, COVID hasn’t touched me personally yet."
+        ]
       }
     ],
     "effectDetails": [
@@ -163,7 +329,13 @@
     "covidStory": [
       {
         "response": "Yes",
-        "synonyms": []
+        "synonyms": [
+          "I really feel that COVID has affected me, and I’d love to talk to you more about it, if you have time.",
+          "The pandemic has been really difficult for me and it would be great to share my experiences with you.",
+          "Could I share my thoughts on the effects that COVID has had one me with you personally?",
+          "I think it would be important for you, as my MP, to hear a first-hand experience of how COVID has affected me.",
+          "My life has been deeply affected by COVID and I would really like the opportunity to share my experience with you."
+        ]
       }
     ],
     "religion": [
@@ -298,9 +470,25 @@
     ]
   },
   "main": {
-    "sentence1": [],
-    "sentence2": [],
-    "sentence3": [],
+    "sentence1": [
+      "Please support the motion for a temporary waiver of IP laws regarding vaccine manufacturing.",
+      "I’m writing to you today to ask you to support a temporary IP waiver - also known as the TRIPS waiver - so that COVID-19 vaccines can be manufactured more globally.",
+      "I am writing today to ask for your help in bringing a motion before Parliament to temporarily waive IP rights for COVID vaccine manufacture.",
+      "As one of your concerned constituents I would like to ask you to support a waiver of the intellectual property rights currently protecting COVID vaccine manufacturing.",
+      "As a constituent here in the UK I would like you to support a TRIPS waiver for the COVID vaccines.",
+      "I would like to ask you, as my MP, to support a so-called TRIPS waiver, which would temporarily relax intellectual property rights with regards to COVID vaccine manufacturing."
+    ],
+    "sentence2": [
+      "Since this waiver would only be temporary - for as long as it takes to get out of this pandemic - it would not disincentivise UK-based pharmaceutical companies in future.",
+      "It seems unlikely that such a limited intervention would decrease R&D or harm our economy.",
+      "Such a temporary IP waiver would safeguard the UK economy while bringing many other benefits."
+    ],
+    "sentence3": [
+      "It’s incredibly important for people all around the globe to get vaccinated against COVID-19.",
+      "We really need to make sure that people all around the world get the COVID vaccine.",
+      "By helping more people in the world become immune against COVID we can prevent the emergence of more variants.",
+      "By helping more people in the world have access to COVID vaccines we can prevent rising infections in the UK."
+    ],
     "greeting": [
       "Dear",
       "Dear",
