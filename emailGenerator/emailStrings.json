@@ -173,15 +173,19 @@
       {
         "response": "Vaccination is not as effective if sections of society, or entire countries are missed out.",
         "synonyms": [
-          "Viruses do not respect national borders. To achieve global levels of herd immunity people from all over the world need to be immunised against COVID-19. ",
-          "High levels of vaccine availability and uptake in individual countries is not enough to make the vaccine efficient on a global scale. ",
+          "Viruses do not respect national borders. To achieve global levels of herd immunity people from all over the world need to be immunised against COVID-19.",
+          "High levels of vaccine availability and uptake in individual countries is not enough to make the vaccine efficient on a global scale.",
           "High vaccination rates in only a few countries is not enough to make the COVID vaccine efficient on a global scale.",
           "High vaccination rates in only a few countries is not enough to make the COVID vaccine as efficient as it needs to be on a global scale."
         ]
       },
       {
         "response": "Corporations have a responsibility to share vaccines",
-        "synonyms": []
+        "synonyms": [
+          "Pharmaceutical companies have a huge amount of knowledge which they have a responsibility to share, when doing so would save lives.",
+          "Vaccine production shouldn’t be limited by which pharmaceutical companies have rights to the necessary knowledge - these companies should be sharing what they know.",
+          "The pharmaceutical industry has a responsibility to make sure that vaccine production is not limited by who owns the rights to the knowledge."
+        ]
       }
     ],
     "countryLinks": [
@@ -309,22 +313,51 @@
     "effectDetails": [
       {
         "response": "I caught COVID",
-        "synonyms": []
+        "synonyms": [
+          "I personally suffered from COVID.",
+          "I caught the virus myself.",
+          "I was ill with COVID.",
+          "I caught COVID myself"
+        ]
       },
       {
         "response": "I lost my job because of COVID",
-        "synonyms": []
+        "synonyms": [
+          "I lost my job due to the knock-on effects of the pandemic,",
+          "COVID caused me to be made redundant ",
+          "As a result of COVID, I lost my job ",
+          "I was made redundant as a result of COVID."
+        ]
       },
       {
         "response": "I was furloughed because of COVID",
-        "synonyms": []
+        "synonyms": [
+          "I spent time on furlough due to the pandemic.",
+          "My employer furloughed me during the pandemic. ",
+          "I was on furlough during the COVID pandemic ."
+        ]
       },
       {
         "response": "I suffer(ed) from long COVID",
-        "synonyms": []
+        "synonyms": [
+          "I have been affected by long COVID, which has been a very unpleasant experience.",
+          "I have experienced long-term symptoms of COVID. ",
+          "Long COVID has affected my daily life in a negative way. ",
+          "The symptoms I experienced after catching COVID have lasted for some time."
+        ]
       },
-      { "response": "I was bereaved by COVID", "synonyms": [] },
-      { "response": "Other", "synonyms": [] }
+      {
+        "response": "I was bereaved by COVID",
+        "synonyms": [
+          "I unfortunately lost a loved one to COVID.",
+          "Someone close to me lost their life to COVID. ",
+          "I have suffered the loss of a loved one due to COVID."
+        ]
+      },
+      {
+        "response": "Other",
+        "synonyms": []
+      }
     ],
     "covidStory": [
       {
