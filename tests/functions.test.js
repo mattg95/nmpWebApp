@@ -1,51 +1,47 @@
-const { motivationHandler } = require("../emailGenerator/responseHandlers.js");
+const {
+  motivationHandler,
+  religionHandler,
+} = require("../emailGenerator/responseHandlers.js");
 const { questionKeys } = require("../emailGenerator/keys.js");
+const nonToryResponse = require("./mockTypeformResponses/NotTory.json");
+const jewishResponse = require("./mockTypeformResponses/Jewish.json");
 
 describe("emailGeneratorFuncs", () => {
-  let covidResponse;
-  before(async function () {
-    let {
-      answers,
-      definition: { fields },
-    } = nonToryMpCovidResponse.form_response;
-    covidResponse = await motivationHandler(
-      questionKeys.motivation,
-      fields,
-      answers
-    );
+  describe("motivationHandler", () => {
+    let functionResponse;
+    before(async function () {
+      let {
+        answers,
+        definition: { fields },
+      } = nonToryResponse.form_response;
+      functionResponse = await motivationHandler(
+        questionKeys.motivation,
+        fields,
+        answers
+      );
+    });
+    it("should return synonyms for a 'Wealthy countries should support...' motivations choice", () => {
+      const regex = /moral duty|ethical obligation/gi;
+      expect(regex.test(functionResponse)).to.be.true;
+    });
   });
-  it("should return synonyms for a 'Covid' motivations choice", () => {
-    const regex = /covid|pandemic|poverty/gi;
-    expect(regex.test(covidResponse)).to.be.true;
-  });
-  before(async function () {
-    let {
-      answers,
-      definition: { fields },
-    } = nonValidPostcodeBritainSecurityResearchResponse.form_response;
-    researchResponse = await motivationHandler(
-      questionKeys.motivation,
-      fields,
-      answers
-    );
-  });
-  it("should return synonyms for a 'research' motivations choice", () => {
-    const regex = /research/gi;
-    expect(regex.test(researchResponse)).to.be.true;
-  });
-  before(async function () {
-    let {
-      answers,
-      definition: { fields },
-    } = allToryResult.form_response;
-    yemenResponse = await motivationHandler(
-      questionKeys.motivation,
-      fields,
-      answers
-    );
-  });
-  it("should return synonyms for a 'Yemen' motivations choice", () => {
-    const regex = /yemen/gi;
-    expect(regex.test(yemenResponse)).to.be.true;
+  describe("countryLinksHandler", () => {});
+  describe("religionHandler", () => {
+    let functionResponse;
+    before(async function () {
+      let {
+        answers,
+        definition: { fields },
+      } = jewishResponse.form_response;
+      functionResponse = await religionHandler(
+        questionKeys.religion,
+        fields,
+        answers
+      );
+    });
+    it("should return reference to a religion when one is picked", () => {
+      const regex = /jew/gi;
+      expect(regex.test(functionResponse)).to.be.true;
+    });
   });
 });
