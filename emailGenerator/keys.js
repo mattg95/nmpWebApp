@@ -11,8 +11,8 @@ const religions = [
 const questionKeys = {
   supportEquity: "qB52F6FaPfky",
   motivation: "rqQeefcxaq2S",
+  countryLinks: "mPCgUwXYiAWl",
   whichCountry: "AuLzXKhKqkTc",
-  countryLinks: "Z4awe4sDljLR",
   covidEffects: "DH5hTinbbris",
   effectDetails: "mgV5BH7tLhj8",
   covidStory: "bkd4xodFqru9",

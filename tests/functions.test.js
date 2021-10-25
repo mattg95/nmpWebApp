@@ -1,10 +1,12 @@
 const {
   motivationHandler,
   religionHandler,
+  countryLinksHandler,
 } = require("../emailGenerator/responseHandlers.js");
 const { questionKeys } = require("../emailGenerator/keys.js");
 const nonToryResponse = require("./mockTypeformResponses/NotTory.json");
 const jewishResponse = require("./mockTypeformResponses/Jewish.json");
+const nigerianResponse = require("./mockTypeformResponses/NigerianBornResponse.json");
 
 describe("emailGeneratorFuncs", () => {
   describe("motivationHandler", () => {
@@ -25,7 +27,24 @@ describe("emailGeneratorFuncs", () => {
       expect(regex.test(functionResponse)).to.be.true;
     });
   });
-  describe("countryLinksHandler", () => {});
+  describe("countryLinksHandler", () => {
+    let functionResponse;
+    before(async function () {
+      let {
+        answers,
+        definition: { fields },
+      } = nigerianResponse.form_response;
+      functionResponse = await countryLinksHandler(
+        questionKeys.countryLinks,
+        fields,
+        answers
+      );
+    });
+    it("should return reference to a country when one is picked", () => {
+      const regex = /Nigeria/gi;
+      expect(regex.test(functionResponse)).to.be.true;
+    });
+  });
   describe("religionHandler", () => {
     let functionResponse;
     before(async function () {
