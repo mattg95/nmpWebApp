@@ -4,16 +4,16 @@
     "Please improve global vaccine equity.",
     "Please provide Vaccines for the world.",
     "Provide COVID jabs for everyone in the world.",
-    "TRIPS waiver now. ",
+    "TRIPS waiver now.",
     "Please support a TRIPS waiver.",
     "COVID-19 vaccine patent waiver now.",
-    "COVID vaccine equity. ",
-    "Please support COVID-19 vaccine equity. ",
+    "COVID vaccine equity.",
+    "Please support COVID-19 vaccine equity.",
     "Let’s protect the world from COVID-19.",
-    "Please help protect the world from COVID-19. ",
+    "Please help protect the world from COVID-19.",
     "Let’s beat COVID-19.",
     "Please help in the global fight against COVID-19.",
-    "Please help global vaccine manufacture. ",
+    "Please help global vaccine manufacture.",
     "Allow global COVID-19 vaccine manufacturing.",
     "Allow COVID-19 vaccine manufacturing globally.",
     "Allow COVID vaccine manufacturing everywhere in the world.",
@@ -37,12 +37,12 @@
     "International vaccination",
     "Universal vaccines",
     "Universal vaccination",
-    "Support for a TRIPS waiver ",
-    " Support for vaccine equity",
+    "Support for a TRIPS waiver",
+    "Support for vaccine equity",
     "Support for global vaccination ",
     "Support for global vaccine equity ",
     "Support for global vaccines",
-    "Support for international vaccination ",
+    "Support for international vaccination",
     "Support for international vaccine equity ",
     "Support for universal vaccination",
     "Support for universal vaccine equity",
@@ -91,10 +91,10 @@
     "Call for action on international vaccine equity",
     "Call for action on universal vaccination",
     "Call for action on universal vaccines",
-    "TRIPS waiver please ",
-    "Vaccine equity please ",
+    "TRIPS waiver please",
+    "Vaccine equity please",
     "Global vaccination please",
-    "Global vaccines please ",
+    "Global vaccines please",
     "Global vaccine equity please",
     "International vaccine equity please",
     "International vaccines please",
@@ -137,14 +137,14 @@
         "response": "It supports those who are most vulnerable.",
         "synonyms": [
           "While people in the UK are getting COVID booster shots there are countries in which vulnerable people and healthcare workers have not even received their first doses.",
-          "Some people in the UK are now being offered booster shots while in poorer countries elderly people and healthcare professionals sometimes have not even had one shot; we need to help protect the most vulnerable people, globally speaking. "
+          "Some people in the UK are now being offered booster shots while in poorer countries elderly people and healthcare professionals sometimes have not even had one shot; we need to help protect the most vulnerable people, globally speaking."
         ]
       },
       {
         "response": "Countries can't 'reopen' without equal access to vaccines",
         "synonyms": [
-          "Many people here in the UK have missed travelling abroad - to visit friends or family, or for holidays - the sooner the share of vaccinated people increases globally, the sooner we will be able to travel with fewer restrictions. ",
-          "Living in our globalised world is best when we can travel without restrictions, and this will only be possible again once more people are vaccinated abroad. "
+          "Many people here in the UK have missed travelling abroad - to visit friends or family, or for holidays - the sooner the share of vaccinated people increases globally, the sooner we will be able to travel with fewer restrictions.",
+          "Living in our globalised world is best when we can travel without restrictions, and this will only be possible again once more people are vaccinated abroad."
         ]
       },
 
@@ -166,8 +166,8 @@
       {
         "response": "It improves vaccine production and medical research.",
         "synonyms": [
-          "Giving countries in the Global South the permission to produce COVID vaccines now might improve vaccine research and production capabilities in the future. ",
-          "Allowing developing countries to produce COVID vaccines now might improve vaccine research and production capabilities in the future. "
+          "Giving countries in the Global South the permission to produce COVID vaccines now might improve vaccine research and production capabilities in the future.",
+          "Allowing developing countries to produce COVID vaccines now might improve vaccine research and production capabilities in the future."
         ]
       },
       {
@@ -285,20 +285,20 @@
       {
         "response": "I feel that COVID has had a very deep, significant impact on my life",
         "synonyms": [
-          "COVID has really hit me hard, on a personal level. ",
-          "The pandemic has affected me deeply. ",
-          "The COVID pandemic is still having significant consequences in my life. ",
-          "COVID has forced me to change the way I look at life. ",
-          "The pandemic has been very difficult for me. ",
+          "COVID has really hit me hard, on a personal level.",
+          "The pandemic has affected me deeply.",
+          "The COVID pandemic is still having significant consequences in my life.",
+          "COVID has forced me to change the way I look at life.",
+          "The pandemic has been very difficult for me.",
           "The changes brought about by this global pandemic have had a huge impact on my life."
         ]
       },
       {
         "response": "I feel that COVID has had an impact on my life (but not a very deep, significant impact)",
         "synonyms": [
-          "Like for so many people, the pandemic has not been easy for me personally. ",
-          "COVID has not passed me by. ",
-          "The experience of this pandemic has not left me untouched. "
+          "Like for so many people, the pandemic has not been easy for me personally.",
+          "COVID has not passed me by.",
+          "The experience of this pandemic has not left me untouched."
         ]
       },
       {
@@ -333,7 +333,7 @@
         "response": "I was furloughed because of COVID",
         "synonyms": [
           "I spent time on furlough due to the pandemic.",
-          "My employer furloughed me during the pandemic. ",
+          "My employer furloughed me during the pandemic.",
           "I was on furlough during the COVID pandemic ."
         ]
       },
@@ -341,8 +341,8 @@
         "response": "I suffer(ed) from long COVID",
         "synonyms": [
           "I have been affected by long COVID, which has been a very unpleasant experience.",
-          "I have experienced long-term symptoms of COVID. ",
-          "Long COVID has affected my daily life in a negative way. ",
+          "I have experienced long-term symptoms of COVID.",
+          "Long COVID has affected my daily life in a negative way.",
           "The symptoms I experienced after catching COVID have lasted for some time."
         ]
       },
@@ -350,7 +350,7 @@
         "response": "I was bereaved by COVID",
         "synonyms": [
           "I unfortunately lost a loved one to COVID.",
-          "Someone close to me lost their life to COVID. ",
+          "Someone close to me lost their life to COVID.",
           "I have suffered the loss of a loved one due to COVID."
         ]
       },
