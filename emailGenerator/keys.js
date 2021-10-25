@@ -11,17 +11,17 @@ const religions = [
 const questionKeys = {
   supportEquity: "qB52F6FaPfky",
   motivation: "rqQeefcxaq2S",
-  countryLinks: "mPCgUwXYiAWl",
   whichCountry: "AuLzXKhKqkTc",
+  countryLinks: "mPCgUwXYiAWl",
   covidEffects: "DH5hTinbbris",
   effectDetails: "mgV5BH7tLhj8",
   covidStory: "bkd4xodFqru9",
   religion: "t43tsNnnoOt9",
-  conservative: "EejpFBEzP9wK",
-  emailAddress: "ghzBmQTQ2npF",
+  conservative: "VuCCRWDMV18w",
+  emailAddress: "yGPnidCtY2k8",
   postcode: "1vENQbJ5sDsj",
-  homeAddress: "uLPPjjg5B0Bn",
-  name: "daZZA6TwyMP5",
+  homeAddress: "OPATP2CH5zWB",
+  name: "YW2KVyy7X2Mk",
 };
 
 module.exports = { religions, questionKeys, questionKeys };
