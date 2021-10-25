@@ -36,7 +36,6 @@ describe("generateEmail", () => {
   let jewishEmail;
   let otherReligionEmail;
   let nonValidPostcodeEmail;
-  let covidMotivationsEmail;
 
   before(async function () {
     randomResponse = await getRandomEmail();
@@ -70,6 +69,7 @@ describe("generateEmail", () => {
   });
   it("should not include 'COUNTRY_NAME' template variable", () => {
     expect(randomResponse.body.search("COUNTRY_NAME")).to.equal(-1);
+    expect(randomResponse.body.search("COUNRY_NAME")).to.equal(-1);
   });
   it("should not include the string 'undefined' anywhere in the email", () => {
     expect(randomResponse.body.search("undefined")).to.equal(-1);
@@ -121,6 +121,7 @@ describe("generateEmail", () => {
   });
   it("non-conservative responses should not reference that in the email", () => {
     expect(nonToryEmail.body.search(/member/gi)).to.equal(-1);
+    expect(labourMpEmail.body.search(/conservative/gi)).to.equal(-1);
   });
   it("Conservative responses to Conservative MPs should reference that in the email", () => {
     expect(allToryEmail.body.search(/conservative/gi)).to.not.equal(-1);
@@ -135,7 +136,15 @@ describe("generateEmail", () => {
     );
   });
   it("should include reference to a user's motivation where they have put that in", () => {
-    const regex = /covid|pandemic|poverty/gi;
-    expect(regex.test(covidMotivationsEmail.body)).to.be.true;
+    const regex = /moral duty|ethical obligation/gi;
+    expect(regex.test(nonToryEmail.body)).to.be.true;
+  });
+  it("should include a greeting", () => {
+    const regex = /Dear|to|hi|hello/gi;
+    expect(regex.test(allToryEmail.greeting)).to.be.true;
+  });
+  it("should include a signoff", () => {
+    const regex = /best|thank|yours|Sincerely|respectfully|kind/gi;
+    expect(regex.test(randomResponse.body)).to.be.true;
   });
 });
