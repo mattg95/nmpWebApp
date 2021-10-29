@@ -110,9 +110,7 @@ const generateEmail = ({ answers, definition: { fields } }) => {
     const mainContent =
       getRandomResponse(main.sentence1) +
       " " +
-      getRandomResponse(main.sentence2) +
-      " " +
-      getRandomResponse(main.sentence3);
+      getRandomResponse(main.sentence2);
     emailMap.set("mainContent", mainContent);
 
     let emailbodyStr = "";
