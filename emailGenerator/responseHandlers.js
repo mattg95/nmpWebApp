@@ -51,4 +51,29 @@ const religionHandler = (thisId, fields, answers) => {
   }
 };
 
-module.exports = { motivationHandler, countryLinksHandler, religionHandler };
+const randomResponseHandler = (thisField, thisId, fields, answers) => {
+  const choiceIndex = getAnswerIndex(thisId, fields, answers);
+  const choiceObj = survey[thisField][choiceIndex];
+  if (choiceObj === undefined) return "";
+  else {
+    return getRandomResponse(choiceObj.synonyms);
+  }
+};
+
+const covidStoryHandler = (thisField, thisId, fields, answers) => {
+  const choiceIndex = getAnswerIndex(thisId, fields, answers);
+  if (choiceIndex !== 0) return "";
+  const choiceObj = survey[thisField][choiceIndex];
+  if (choiceObj === undefined) return "";
+  else {
+    return getRandomResponse(choiceObj.synonyms);
+  }
+};
+
+module.exports = {
+  motivationHandler,
+  countryLinksHandler,
+  religionHandler,
+  randomResponseHandler,
+  covidStoryHandler,
+};

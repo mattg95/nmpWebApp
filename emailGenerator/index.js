@@ -9,6 +9,7 @@ const {
   motivationHandler,
   countryLinksHandler,
   religionHandler,
+  randomResponseHandler,
 } = require("./responseHandlers");
 const { questionKeys } = require("./keys");
 
@@ -22,10 +23,10 @@ const generateEmail = ({ answers, definition: { fields } }) => {
   const emailMap = new Map([
     ["conservative", ""],
     ["mainContent", ""],
+    ["covidEffects", ""],
     ["countryLinks", ""],
     ["religion", ""],
     ["motivation", ""],
-    ["meetMp", ""],
     ["name", ""],
     ["address", ""],
     ["phoneNumber", ""],
@@ -56,12 +57,48 @@ const generateEmail = ({ answers, definition: { fields } }) => {
     }
 
     if (field.id === questionKeys.countryLinks) {
-      const counryLinks = countryLinksHandler(
+      const countryLinks = countryLinksHandler(
         questionKeys.countryLinks,
         fields,
         answers
       );
-      emailMap.set("countryLinks", counryLinks);
+      emailMap.set("countryLinks", countryLinks);
+    }
+
+    if (field.id === questionKeys.covidEffects) {
+      const covidEffects = randomResponseHandler(
+        "covidEffects",
+        questionKeys.covidEffects,
+        fields,
+        answers
+      );
+      emailMap.set("covidEffects", covidEffects);
+    }
+
+    if (field.id === questionKeys.effectDetails) {
+      const effectDetails = randomResponseHandler(
+        "effectDetails",
+        questionKeys.effectDetails,
+        fields,
+        answers
+      );
+      emailMap.set(
+        "covidEffects",
+        emailMap.get("covidEffects") + " " + effectDetails
+      );
+    }
+
+    if (field.id === questionKeys.covidStory) {
+      const covidStory = randomResponseHandler(
+        "covidStory",
+        questionKeys.covidStory,
+        fields,
+        answers
+      );
+      emailMap.set(
+        "covidEffects",
+        emailMap.get("covidEffects") + " " + covidStory
+      );
     }
 
     if (field.id === questionKeys.motivation) {
