@@ -116,7 +116,7 @@ describe("generateEmail", () => {
     expect(randomResponse.body).not.to.contain("\\n");
   });
   it("should not include strings from the old campaign", () => {
-    expect(randomResponse.body).not.to.contain("aid");
+    expect(randomResponse.body).not.to.contain(" aid ");
     expect(randomResponse.body).not.to.contain("0.7%");
   });
   it("negative responses to question 1 (supporting equity) should return a blank", () => {
