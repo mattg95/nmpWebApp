@@ -9,19 +9,19 @@ const religions = [
 ];
 
 const questionKeys = {
-  supportAid: "gil6UCe4dG9T",
-  motivation: "wKGNjgRDml1H",
-  whichCountry: "MRPxTl6j1QAw",
-  countryLinks: "Z4awe4sDljLR",
-  conservative: "EejpFBEzP9wK",
-  religion: "IdqRPd6SUMVh",
-  meetMp: "vdZgYVyiLE13",
-  meetMpDoubleCheck: "UhNb2Z5nqHtb",
-  emailAddress: "ghzBmQTQ2npF",
-  homeAddress: "uLPPjjg5B0Bn",
-  postcode: "hgdzZ05GxSAs",
-  name: "daZZA6TwyMP5",
-  phoneNumber: "lm89BWs2VeY2",
+  supportEquity: "qB52F6FaPfky",
+  motivation: "rqQeefcxaq2S",
+  whichCountry: "AuLzXKhKqkTc",
+  countryLinks: "mPCgUwXYiAWl",
+  covidEffects: "DH5hTinbbris",
+  effectDetails: "mgV5BH7tLhj8",
+  covidStory: "bkd4xodFqru9",
+  religion: "t43tsNnnoOt9",
+  conservative: "VuCCRWDMV18w",
+  emailAddress: "yGPnidCtY2k8",
+  postcode: "1vENQbJ5sDsj",
+  homeAddress: "OPATP2CH5zWB",
+  name: "YW2KVyy7X2Mk",
 };
 
 module.exports = { religions, questionKeys, questionKeys };

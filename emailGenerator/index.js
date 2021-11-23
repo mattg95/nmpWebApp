@@ -9,40 +9,41 @@ const {
   motivationHandler,
   countryLinksHandler,
   religionHandler,
+  randomResponseHandler,
 } = require("./responseHandlers");
 const { questionKeys } = require("./keys");
 
 const generateEmail = ({ answers, definition: { fields } }) => {
-  let supportsAid = true;
+  let supportEquity = true;
   let memberOfConservatives = false;
   const postcode = answers.find(
-    ({ field: { id } }) => id === questionKeys["postcode"]
+    ({ field: { id } }) => id === questionKeys.postcode
   );
 
   const emailMap = new Map([
     ["conservative", ""],
     ["mainContent", ""],
+    ["covidEffects", ""],
     ["countryLinks", ""],
     ["religion", ""],
     ["motivation", ""],
-    ["meetMp", ""],
     ["name", ""],
     ["address", ""],
     ["phoneNumber", ""],
   ]);
   //this is the 'router' that handles all question responses based on their id
 
-  answers.forEach(({ text, field, choice, phone_number }) => {
-    if (field.id === questionKeys["supportAid"]) {
+  answers.forEach(({ text, field, choice }) => {
+    if (field.id === questionKeys.supportEquity) {
       if (choice.label === "No") {
-        supportsAid = false;
+        supportEquity = false;
       }
       return;
     }
 
-    if (field.id === questionKeys["conservative"]) {
+    if (field.id === questionKeys.conservative) {
       const choiceIndex = getAnswerIndex(
-        questionKeys["conservative"],
+        questionKeys.conservative,
         fields,
         answers
       );
@@ -50,64 +51,78 @@ const generateEmail = ({ answers, definition: { fields } }) => {
       memberOfConservatives = choiceIndex < 4;
     }
 
-    if (field.id === questionKeys["religion"]) {
-      const religions = religionHandler(
-        questionKeys["religion"],
-        fields,
-        answers
-      );
+    if (field.id === questionKeys.religion) {
+      const religions = religionHandler(questionKeys.religion, fields, answers);
       emailMap.set("religion", religions);
     }
 
-    if (field.id === questionKeys["countryLinks"]) {
-      const counryLinks = countryLinksHandler(
-        questionKeys["countryLinks"],
+    if (field.id === questionKeys.countryLinks) {
+      const countryLinks = countryLinksHandler(
+        questionKeys.countryLinks,
         fields,
         answers
       );
-      emailMap.set("countryLinks", counryLinks);
+      emailMap.set("countryLinks", countryLinks);
     }
 
-    if (field.id === questionKeys["motivation"]) {
+    if (field.id === questionKeys.covidEffects) {
+      const covidEffects = randomResponseHandler(
+        "covidEffects",
+        questionKeys.covidEffects,
+        fields,
+        answers
+      );
+      emailMap.set("covidEffects", covidEffects);
+    }
+
+    if (field.id === questionKeys.effectDetails) {
+      const effectDetails = randomResponseHandler(
+        "effectDetails",
+        questionKeys.effectDetails,
+        fields,
+        answers
+      );
+      emailMap.set(
+        "covidEffects",
+        emailMap.get("covidEffects") + " " + effectDetails
+      );
+    }
+
+    if (field.id === questionKeys.covidStory) {
+      const covidStory = randomResponseHandler(
+        "covidStory",
+        questionKeys.covidStory,
+        fields,
+        answers
+      );
+      emailMap.set(
+        "covidEffects",
+        emailMap.get("covidEffects") + " " + covidStory
+      );
+    }
+
+    if (field.id === questionKeys.motivation) {
       const motivations = motivationHandler(
-        questionKeys["motivation"],
+        questionKeys.motivation,
         fields,
         answers
       );
       emailMap.set("motivation", motivations);
     }
 
-    if (field.id === questionKeys["meetMp"]) {
-      if (getAnswerIndex(questionKeys["meetMp"], fields, answers) === 0) {
-        emailMap.set("meetMp", getRandomResponse(survey.meetMp));
-      }
-    }
-
-    if (field.id === questionKeys["meetMpDoubleCheck"]) {
-      if (
-        getAnswerIndex(questionKeys["meetMpDoubleCheck"], fields, answers) === 0
-      ) {
-        emailMap.set("meetMp", getRandomResponse(survey.meetMp));
-      }
-    }
-
-    if (field.id === questionKeys["name"]) {
+    if (field.id === questionKeys.name) {
       const randomSignoff = getRandomResponse(main.signoff);
       emailMap.set("name", `${randomSignoff},\n${text}`);
     }
 
-    if (field.id === questionKeys["homeAddress"]) {
+    if (field.id === questionKeys.homeAddress) {
       emailMap.set("address", text);
-    }
-
-    if (field.id === questionKeys["phoneNumber"]) {
-      emailMap.set("phoneNumber", phone_number);
     }
   });
 
-  if (!supportsAid) {
+  if (!supportEquity) {
     return Promise.resolve({
-      supportsAid: false,
+      supportEquity: false,
       mpData: {},
       greeting: "",
       subject: "",
@@ -118,7 +133,7 @@ const generateEmail = ({ answers, definition: { fields } }) => {
   return getMpByPostcode(postcode.text).then((mp) => {
     if (memberOfConservatives && mp.party === "Conservative") {
       const choiceIndex = getAnswerIndex(
-        questionKeys["conservative"],
+        questionKeys.conservative,
         fields,
         answers
       );
@@ -132,9 +147,7 @@ const generateEmail = ({ answers, definition: { fields } }) => {
     const mainContent =
       getRandomResponse(main.sentence1) +
       " " +
-      getRandomResponse(main.sentence2) +
-      " " +
-      getRandomResponse(main.sentence3);
+      getRandomResponse(main.sentence2);
     emailMap.set("mainContent", mainContent);
 
     let emailbodyStr = "";
@@ -147,7 +160,7 @@ const generateEmail = ({ answers, definition: { fields } }) => {
       }
     }
     const responseData = {
-      supportsAid: true,
+      supportEquity: true,
       mpData: mp,
       greeting: createGreeting(mp),
       subject: getRandomResponse(subject),

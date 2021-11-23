@@ -5,28 +5,22 @@ import { Router } from "@reach/router";
 import HttpsRedirect from "react-https-redirect";
 
 import App from "./App";
-import PrivacyPolicy from "./PrivacyPolicy";
 
 import reportWebVitals from "./reportWebVitals";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Footer from "./Footer";
-import About from "./About";
 
-const tagManagerArgs = {
-  gtmId: "GTM-MWBT83W",
-};
+// const tagManagerArgs = {
+//   gtmId: "GTM-MWBT83W",
+// };
 
-TagManager.initialize(tagManagerArgs);
+// TagManager.initialize(tagManagerArgs);
 
 ReactDOM.render(
   <HttpsRedirect>
     <Router>
       <App path="/" />
-      <PrivacyPolicy path="/privacy-policy" />
-      <About path="/about" />
     </Router>
-    <Footer />
   </HttpsRedirect>,
   document.getElementById("root")
 );

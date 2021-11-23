@@ -1,0 +1,46 @@
+{
+  "event_id": "01FHG6Q0T5GGXS7FPMH2ZFWT5H",
+  "event_type": "form_response",
+  "form_response": {
+    "form_id": "rye8VWC5",
+    "token": "g8limxyl4k0j2zgtwg8limxfey2c62do",
+    "landed_at": "2021-10-08T15:00:29Z",
+    "submitted_at": "2021-10-08T15:00:31Z",
+    "hidden": {
+      "utm_campaign": "",
+      "utm_content": "",
+      "utm_medium": "",
+      "utm_source": ""
+    },
+    "calculated": { "score": 0 },
+    "variables": [{ "key": "score", "type": "number", "number": 0 }],
+    "definition": {
+      "id": "rye8VWC5",
+      "title": "No More Pandemics",
+      "fields": [
+        {
+          "id": "qB52F6FaPfky",
+          "title": "I believe in vaccine equity: i.e. I would like the government to ensure that people across the world get COVID vaccines",
+          "type": "multiple_choice",
+          "ref": "1-Is-aid-good",
+          "properties": {},
+          "choices": [
+            { "id": "5HQoHlLLpFUs", "label": "Yes" },
+            { "id": "Ck9xRzsZ0Vqi", "label": "No" }
+          ]
+        }
+      ]
+    },
+    "answers": [
+      {
+        "type": "choice",
+        "choice": { "label": "No" },
+        "field": {
+          "id": "qB52F6FaPfky",
+          "type": "multiple_choice",
+          "ref": "1-Is-aid-good"
+        }
+      }
+    ]
+  }
+}

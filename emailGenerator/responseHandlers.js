@@ -1,6 +1,6 @@
 const { getRandomResponse, getAnswerIndex } = require("./helper-functions");
 const { survey } = require("./emailStrings.json");
-const { religions } = require("./keys");
+const { religions, questionKeys } = require("./keys");
 
 const motivationHandler = (thisId, fields, answers) => {
   const thisField = fields.find(({ id }) => id === thisId);
@@ -28,7 +28,7 @@ const countryLinksHandler = (thisId, fields, answers) => {
   else {
     const sentence = getRandomResponse(choiceObj.synonyms);
     const countryNameData = answers.find(
-      ({ field: { id } }) => id === "MRPxTl6j1QAw"
+      ({ field: { id } }) => id === questionKeys.whichCountry
     );
     const sentenceWithCountry = sentence.replace(
       /COUNTRY_NAME/g,
@@ -51,4 +51,29 @@ const religionHandler = (thisId, fields, answers) => {
   }
 };
 
-module.exports = { motivationHandler, countryLinksHandler, religionHandler };
+const randomResponseHandler = (thisField, thisId, fields, answers) => {
+  const choiceIndex = getAnswerIndex(thisId, fields, answers);
+  const choiceObj = survey[thisField][choiceIndex];
+  if (choiceObj === undefined) return "";
+  else {
+    return getRandomResponse(choiceObj.synonyms);
+  }
+};
+
+const covidStoryHandler = (thisField, thisId, fields, answers) => {
+  const choiceIndex = getAnswerIndex(thisId, fields, answers);
+  if (choiceIndex !== 0) return "";
+  const choiceObj = survey[thisField][choiceIndex];
+  if (choiceObj === undefined) return "";
+  else {
+    return getRandomResponse(choiceObj.synonyms);
+  }
+};
+
+module.exports = {
+  motivationHandler,
+  countryLinksHandler,
+  religionHandler,
+  randomResponseHandler,
+  covidStoryHandler,
+};
