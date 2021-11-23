@@ -10,7 +10,6 @@ import MpForm from "./MpForm";
 import DisplayMp from "./DisplayMp";
 import SendEmail from "./SendEmail";
 import IntroContent from "./IntroContent";
-import ShareLinks from "./ShareLinks";
 
 import "./App.scss";
 
@@ -194,7 +193,6 @@ const App = () => {
             )}
           </>
         )}
-        <ShareLinks />
       </Container>
     </div>
   );

@@ -60,10 +60,13 @@ const TypeForm = ({ passDataUpstream, isMobile }) => {
           Fill out the survey to email your MP{" "}
         </button>
         <p className="explanation">
-          <strong>We will draft an email</strong> based on your survey
-          responses,{" "}
-          <strong>written to have the maximum impact on your MP.</strong> With
-          your help we can safeguard the support so many need.
+          We will draft an email based on your survey responses, written to have
+          the maximum impact on your MP.{" "}
+          <strong>
+            {" "}
+            We, as UK residents, have the power to influence our government and
+            ensure that everyone across the globe can get the Covid-19 vaccine.
+          </strong>
         </p>
       </div>
       <div

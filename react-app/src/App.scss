@@ -17,7 +17,7 @@ html {
   width: 100%;
   margin: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url("./assets/Background Small.jpg");
+    url("./assets/background-img.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto 100vh;
@@ -77,10 +77,14 @@ html {
   }
 }
 
-h1,
+h1 {
+  font-family: "Open Sans", sans-serif;
+  color: #ff0202;
+}
+
 h2 {
   font-family: "Open Sans", sans-serif;
-  color: $primary;
+  color: white;
 }
 h1,
 h2,

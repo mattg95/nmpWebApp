@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import TagManager from "react-gtm-module";
 import { Router } from "@reach/router";
 import HttpsRedirect from "react-https-redirect";
 
@@ -9,12 +8,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-
-// const tagManagerArgs = {
-//   gtmId: "GTM-MWBT83W",
-// };
-
-// TagManager.initialize(tagManagerArgs);
 
 ReactDOM.render(
   <HttpsRedirect>
