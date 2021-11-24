@@ -105,10 +105,10 @@ label {
   margin-bottom: 0;
 }
 h1.title {
-  margin-top: 40px;
+  padding-top: 40px;
   margin-bottom: 20px;
   @media only screen and (min-width: 768px) {
-    margin-top: 60px;
+    padding-top: 60px;
     margin-bottom: 40px;
     font-size: 5rem;
     line-height: 8rem;
@@ -164,14 +164,13 @@ h2.secondary-header {
   z-index: 50;
   position: relative;
   top: 0px;
-  bottom: 0px;
   right: 0px;
   left: 0px;
   @media only screen and (max-width: 767px) {
     display: none;
   }
   @media only screen and (min-width: 768px) {
-    height: 120vh;
+    height: 1000px;
     margin-top: 80px;
     margin-bottom: 80px;
   }

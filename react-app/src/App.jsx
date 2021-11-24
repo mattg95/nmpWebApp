@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import socketIOClient from "socket.io-client";
-import { Container, Row, Col } from "react-bootstrap";
 
 import TypeForm from "./TypeForm";
 import TextBox from "./TextBox";
@@ -49,6 +48,7 @@ const App = () => {
 
   useEffect(() => {
     socket.on("typeform-incoming", ({ formToken, generatedEmail }) => {
+      console.log(generatedEmail);
       if (formToken === responseId) {
         setState({
           ...state,
@@ -125,75 +125,43 @@ const App = () => {
 
   return (
     <div className="main">
-      <Container>
-        <Row>
-          <Col>
-            <IntroContent />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <div className="typeform">
-              <TypeForm
-                passDataUpstream={passDataUpstream}
-                isMobile={isMobile}
-              />
-            </div>
-          </Col>
-        </Row>
-        {positiveTypeFormResponseReturned && (
-          <>
-            <Row>
-              <Col>
-                <div ref={displayMpRef}>
-                  <DisplayMp mpData={mpData} />
-                </div>
-              </Col>
-            </Row>
-            <Row>
-              <Col>
-                <div id="mpForm" className="">
-                  <MpForm passDataUpstream={passDataUpstream} />
-                </div>
-              </Col>
-            </Row>
-            {emailVisible && (
-              <div>
-                <Row>
-                  <Col>
-                    <div ref={emailBoxRef}>
-                      <TextBox
-                        passDataUpstream={passDataUpstream}
-                        emailBody={emailWithGreeting}
-                        subject={emailSubject}
-                      />
-                    </div>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
-                    <div className="">
-                      <SendEmail
-                        mpEmailAddress={mpData.mpEmailAddress}
-                        body={emailWithGreeting}
-                        subject={emailSubject}
-                        passDataUpstream={passDataUpstream}
-                      />
-                    </div>
-                  </Col>
-                </Row>
-                {emailSent && (
-                  <Row>
-                    <Col>
-                      <h2 className="secondary-header">Thankyou!</h2>
-                    </Col>
-                  </Row>
-                )}
+      <IntroContent />
+
+      <div className="typeform">
+        <TypeForm passDataUpstream={passDataUpstream} isMobile={isMobile} />
+      </div>
+
+      {positiveTypeFormResponseReturned && (
+        <>
+          <div ref={displayMpRef}>
+            <DisplayMp mpData={mpData} />
+          </div>
+
+          <div id="mpForm" className="">
+            <MpForm passDataUpstream={passDataUpstream} />
+          </div>
+          {emailVisible && (
+            <div>
+              <div ref={emailBoxRef}>
+                <TextBox
+                  passDataUpstream={passDataUpstream}
+                  emailBody={emailWithGreeting}
+                  subject={emailSubject}
+                />
               </div>
-            )}
-          </>
-        )}
-      </Container>
+              <div className="">
+                <SendEmail
+                  mpEmailAddress={mpData.mpEmailAddress}
+                  body={emailWithGreeting}
+                  subject={emailSubject}
+                  passDataUpstream={passDataUpstream}
+                />
+              </div>
+              {emailSent && <h2 className="secondary-header">Thankyou!</h2>}
+            </div>
+          )}
+        </>
+      )}
     </div>
   );
 };
