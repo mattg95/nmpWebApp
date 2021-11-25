@@ -130,44 +130,42 @@ const generateEmail = ({ answers, definition: { fields } }) => {
     });
   }
 
-  return getMpByPostcode(postcode.text).then((mp) => {
-    if (memberOfConservatives && mp.party === "Conservative") {
-      const choiceIndex = getAnswerIndex(
-        questionKeys.conservative,
-        fields,
-        answers
-      );
-      const choiceObj = survey.conservative[choiceIndex];
-      if (choiceObj.synonyms.length > 0) {
-        emailMap.set("conservative", getRandomResponse(choiceObj.synonyms));
-      }
-    }
+  //adds 'main' content from emailString.Json
+  const mainContent =
+    getRandomResponse(main.sentence1) + " " + getRandomResponse(main.sentence2);
+  emailMap.set("mainContent", mainContent);
 
-    //adds 'main' content from emailString.Json
-    const mainContent =
-      getRandomResponse(main.sentence1) +
-      " " +
-      getRandomResponse(main.sentence2);
-    emailMap.set("mainContent", mainContent);
-
-    let emailbodyStr = "";
-    for (let [k, v] of emailMap) {
-      if (k === "address") {
-        v = v.replace(/,\s/g, ",\n");
-        emailbodyStr += v + `\n`;
-      } else {
-        v.length && (emailbodyStr += v + `\n\n`);
-      }
+  let emailbodyStr = "";
+  for (let [k, v] of emailMap) {
+    if (k === "address") {
+      v = v.replace(/,\s/g, ",\n");
+      emailbodyStr += v + `\n`;
+    } else {
+      v.length && (emailbodyStr += v + `\n\n`);
     }
-    const responseData = {
-      supportEquity: true,
-      mpData: mp,
-      greeting: createGreeting(mp),
-      subject: getRandomResponse(subject),
-      body: emailbodyStr,
-    };
-    return responseData;
-  });
+  }
+  const responseData = {
+    supportEquity: true,
+    // mpData: mp,
+    // greeting: createGreeting(mp),
+    subject: getRandomResponse(subject),
+    body: emailbodyStr,
+  };
+  return Promise.resolve(responseData);
+
+  // return getMpByPostcode(postcode.text).then((mp) => {
+  //   if (memberOfConservatives && mp.party === "Conservative") {
+  //     const choiceIndex = getAnswerIndex(
+  //       questionKeys.conservative,
+  //       fields,
+  //       answers
+  //     );
+  //     const choiceObj = survey.conservative[choiceIndex];
+  //     if (choiceObj.synonyms.length > 0) {
+  //       emailMap.set("conservative", getRandomResponse(choiceObj.synonyms));
+  //     }
+  //   }
+  // });
 };
 
 module.exports = { generateEmail };
