@@ -43,32 +43,6 @@ const TypeForm = ({ passDataUpstream, isMobile }) => {
 
   return (
     <div>
-      <div className="call-to-action text-center">
-        <button
-          ref={buttonRef}
-          onClick={(e) => {
-            e.preventDefault();
-            isMobile
-              ? mobileTypeform.open()
-              : typeformComponent.current.scrollIntoView({
-                  behavior: "smooth",
-                  block: "end",
-                });
-          }}
-          className="btn btn-primary btn-lg main-cta"
-        >
-          Fill out the survey to email your MP{" "}
-        </button>
-        <p className="explanation">
-          We will draft an email based on your survey responses, written to have
-          the maximum impact on your MP.{" "}
-          <strong>
-            {" "}
-            We, as UK residents, have the power to influence our government and
-            ensure that everyone across the globe can get the Covid-19 vaccine.
-          </strong>
-        </p>
-      </div>
       <div
         ref={typeformComponent}
         className={`typeform-widget ${typeformWidgetOpen ? "" : "closed"}`}

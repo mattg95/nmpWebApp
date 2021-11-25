@@ -8,7 +8,6 @@ import TextBox from "./TextBox";
 import MpForm from "./MpForm";
 import DisplayMp from "./DisplayMp";
 import SendEmail from "./SendEmail";
-import IntroContent from "./IntroContent";
 
 import "./App.scss";
 
@@ -20,7 +19,11 @@ const App = () => {
   const [state, setState] = useState({
     width: window.innerWidth,
     responseId: "",
-    mpData: { error: "Could not find MP", name: "", full_name: "" },
+    mpData: {
+      error: "Please enter your postcode to find your MP",
+      name: "",
+      full_name: "",
+    },
     generatedEmailBody: "Your email will appear here",
     emailSubject: "",
     positiveTypeFormResponseReturned: false,
@@ -54,10 +57,10 @@ const App = () => {
           ...state,
           generatedEmailBody: generatedEmail.body,
           emailSubject: generatedEmail.subject,
-          mpData: generatedEmail.mpData,
-          greeting: generatedEmail.greeting,
-          emailWithGreeting: generatedEmail.greeting + generatedEmail.body,
-          positiveTypeFormResponseReturned: generatedEmail.supportsAid,
+          // mpData: generatedEmail.mpData,
+          // greeting: generatedEmail.greeting,
+          // emailWithGreeting: generatedEmail.greeting + generatedEmail.body,
+          positiveTypeFormResponseReturned: generatedEmail.supportEquity,
         });
       }
     });
