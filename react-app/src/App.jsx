@@ -128,8 +128,6 @@ const App = () => {
 
   return (
     <div className="main">
-      <IntroContent />
-
       <div className="typeform">
         <TypeForm passDataUpstream={passDataUpstream} isMobile={isMobile} />
       </div>
