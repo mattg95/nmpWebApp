@@ -13,6 +13,9 @@ $secondary: #4eb9be;
 html {
   scroll-behavior: smooth;
 }
+.root {
+  min-height: 100%;
+}
 .main {
   width: 100%;
   margin: 0;
@@ -21,21 +24,18 @@ html {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto 100vh;
+  background-position: center top;
+  padding-bottom: 40px;
+  min-height: 85vh;
+
   @media only screen and (min-width: 768px) {
     background-size: cover;
-  }
-  background-position: center top;
-}
-
-.main {
-  padding-bottom: 40px;
-  @media only screen and (min-width: 768px) {
     padding-bottom: 80px;
   }
 }
 
 .footer {
-  background-color: #313147;
+  background-color: #232323;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 16px;

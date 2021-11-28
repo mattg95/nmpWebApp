@@ -64,17 +64,33 @@ const MpForm = ({ passDataUpstream }) => {
 
   return (
     <div>
+      <form
+        className="get-MP-form"
+        id="postcodeDropdown"
+        ref={dropdownRef}
+        onChange={handleValidation}
+        onSubmit={handleValidation}
+      >
+        <label htmlFor="postcode" className="postcode-label">
+          Postcode:
+        </label>
+        <input type="text" name="postcode" className="postcode-input" />
+        <input
+          type="checkbox"
+          className="bots"
+          name="bots"
+          tabIndex="-1"
+          autoComplete="off"
+        />
+        <div className="form-messages">
+          {postcodeError && !isLoading && (
+            <div className="error postcode-error">{postcodeError}</div>
+          )}
+          {isLoading && <div className="loading">Fetching your MP...</div>}
+        </div>
+      </form>
+
       <div className="button-container" id="postcodeDropdown">
-        <button
-          className="btn btn-lg cta btn-outline-primary left-button"
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            setState({ ...state, dropDownOpen: true });
-          }}
-        >
-          Don't see your MP?
-        </button>
         <button
           className="btn btn-lg cta btn-primary right-button "
           type="submit"
@@ -84,36 +100,9 @@ const MpForm = ({ passDataUpstream }) => {
             passDataUpstream({ emailVisible: true });
           }}
         >
-          Yes, continue with this MP
+          Continue with this MP
         </button>
       </div>
-      {dropDownOpen && (
-        <form
-          className="get-MP-form"
-          id="postcodeDropdown"
-          ref={dropdownRef}
-          onChange={handleValidation}
-          onSubmit={handleValidation}
-        >
-          <label htmlFor="postcode" className="postcode-label">
-            Postcode:
-          </label>
-          <input type="text" name="postcode" className="postcode-input" />
-          <input
-            type="checkbox"
-            className="bots"
-            name="bots"
-            tabIndex="-1"
-            autoComplete="off"
-          />
-          <div className="form-messages">
-            {postcodeError && !isLoading && (
-              <div className="error postcode-error">{postcodeError}</div>
-            )}
-            {isLoading && <div className="loading">Fetching your MP...</div>}
-          </div>
-        </form>
-      )}
     </div>
   );
 };

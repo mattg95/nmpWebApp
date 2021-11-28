@@ -10,6 +10,7 @@ import MpForm from "./MpForm";
 import DisplayMp from "./DisplayMp";
 import SendEmail from "./SendEmail";
 import IntroContent from "./IntroContent";
+import Footer from "./Footer";
 
 import "./App.scss";
 
@@ -54,10 +55,7 @@ const App = () => {
           ...state,
           generatedEmailBody: generatedEmail.body,
           emailSubject: generatedEmail.subject,
-          mpData: generatedEmail.mpData,
-          greeting: generatedEmail.greeting,
-          emailWithGreeting: generatedEmail.greeting + generatedEmail.body,
-          positiveTypeFormResponseReturned: generatedEmail.supportsAid,
+          positiveTypeFormResponseReturned: generatedEmail.supportEquity,
         });
       }
     });
@@ -124,32 +122,37 @@ const App = () => {
   };
 
   return (
-    <div className="main">
-      <Container>
-        <Row>
-          <Col>
-            <IntroContent />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <div className="typeform">
-              <TypeForm
-                passDataUpstream={passDataUpstream}
-                isMobile={isMobile}
-              />
-            </div>
-          </Col>
-        </Row>
-        {positiveTypeFormResponseReturned && (
+    <div className="root">
+      <div className="main">
+        <Container>
+          <Row>
+            <Col>
+              <IntroContent />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className="typeform">
+                <TypeForm
+                  passDataUpstream={passDataUpstream}
+                  isMobile={isMobile}
+                />
+              </div>
+            </Col>
+          </Row>
+          {/* {positiveTypeFormResponseReturned && ( */}
           <>
-            <Row>
-              <Col>
-                <div ref={displayMpRef}>
-                  <DisplayMp mpData={mpData} />
-                </div>
-              </Col>
-            </Row>
+            <h2 className="secondary-header">Find Your MP</h2>
+
+            {mpData.name || mpData.full_name ? (
+              <Row>
+                <Col>
+                  <div ref={displayMpRef}>
+                    <DisplayMp mpData={mpData} />
+                  </div>
+                </Col>
+              </Row>
+            ) : null}
             <Row>
               <Col>
                 <div id="mpForm" className="">
@@ -192,8 +195,14 @@ const App = () => {
               </div>
             )}
           </>
-        )}
-      </Container>
+          {/* )} */}
+        </Container>
+      </div>
+      <div className="footer">
+        <Container>
+          <Footer />
+        </Container>
+      </div>
     </div>
   );
 };
