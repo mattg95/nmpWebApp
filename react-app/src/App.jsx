@@ -11,6 +11,7 @@ import DisplayMp from "./DisplayMp";
 import SendEmail from "./SendEmail";
 import IntroContent from "./IntroContent";
 import Footer from "./Footer";
+import ShareLinks from "./ShareLinks";
 
 import "./App.scss";
 
@@ -188,14 +189,7 @@ const App = () => {
                   {emailSent ? (
                     <Row>
                       <Col>
-                        <h2 className="secondary-header">Thankyou!</h2>
-                        <div className="nmp-link">
-                          <p className="explanation">
-                            <a href="https://nomorepandemics.com/">
-                              Find out more about the work of No More Pandemics
-                            </a>
-                          </p>
-                        </div>
+                        <ShareLinks />
                       </Col>
                     </Row>
                   ) : null}

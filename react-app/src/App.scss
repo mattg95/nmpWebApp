@@ -215,6 +215,13 @@ h2.secondary-header {
   justify-content: space-evenly;
 }
 
+p.intro {
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  margin-bottom: 40px;
+  display: block;
+}
+
 p.explanation {
   font-size: 1.7rem;
   line-height: 2.5rem;
@@ -514,8 +521,8 @@ textarea:disabled {
   }
 }
 
-.nmp-link .explanation {
-  a {
+.nmp-link {
+  p {
     color: #ed4b1a !important;
   }
 }
