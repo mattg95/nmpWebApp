@@ -12,7 +12,7 @@ const ShareLinks = () => {
       </div>
       <div
         className="a2a_kit a2a_kit_size_50 a2a_default_style"
-        data-a2a-url="https://nomorepandemics.com/"
+        data-a2a-url="http://vaccine.nomorepandemics.com/"
         data-a2a-title="The 0.7% Commitment"
       >
         <a className="a2a_dd" href="https://www.addtoany.com/share"></a>
