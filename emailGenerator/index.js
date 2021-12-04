@@ -123,8 +123,6 @@ const generateEmail = ({ answers, definition: { fields } }) => {
   if (!supportEquity) {
     return Promise.resolve({
       supportEquity: false,
-      mpData: {},
-      greeting: "",
       subject: "",
       body: "",
     });
@@ -150,20 +148,6 @@ const generateEmail = ({ answers, definition: { fields } }) => {
     body: emailbodyStr,
   };
   return Promise.resolve(responseData);
-
-  // return getMpByPostcode(postcode.text).then((mp) => {
-  //   if (memberOfConservatives && mp.party === "Conservative") {
-  //     const choiceIndex = getAnswerIndex(
-  //       questionKeys.conservative,
-  //       fields,
-  //       answers
-  //     );
-  //     const choiceObj = survey.conservative[choiceIndex];
-  //     if (choiceObj.synonyms.length > 0) {
-  //       emailMap.set("conservative", getRandomResponse(choiceObj.synonyms));
-  //     }
-  //   }
-  // });
 };
 
 module.exports = { generateEmail };

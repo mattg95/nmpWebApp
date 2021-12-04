@@ -54,14 +54,7 @@ describe("generateEmail", () => {
     failingResponse = await generateEmail(failingTest.form_response);
   });
   it("should return an object with keys 'body' and 'subject'", () => {
-    expect(randomResponse).to.have.keys(
-      "body",
-      "subject",
-      "greeting",
-      "mpData",
-      "supportEquity"
-    );
-    expect(Object.keys(randomResponse).length).to.equal(5);
+    expect(randomResponse).to.have.keys("body", "subject", "supportEquity");
   });
   it("response.body should be a string", () => {
     expect(typeof randomResponse.body).to.equal("string");
@@ -129,25 +122,9 @@ describe("generateEmail", () => {
     expect(nonToryEmail.body.search(/member/gi)).to.equal(-1);
     expect(labourMpEmail.body.search(/conservative/gi)).to.equal(-1);
   });
-  it("Conservative responses to Conservative MPs should reference that in the email", () => {
-    expect(allToryEmail.body.search(/conservative/gi)).to.not.equal(-1);
-  });
-  it("works even if a user inputs an invalid postcode", () => {
-    expect(nonValidPostcodeEmail).to.have.keys(
-      "body",
-      "subject",
-      "greeting",
-      "mpData",
-      "supportEquity"
-    );
-  });
   it("should include reference to a user's motivation where they have put that in", () => {
-    const regex = /moral duty|ethical obligation/gi;
+    const regex = /moral|ethical/gi;
     expect(regex.test(nonToryEmail.body)).to.be.true;
-  });
-  it("should include a greeting", () => {
-    const regex = /Dear|to|hi|hello/gi;
-    expect(regex.test(allToryEmail.greeting)).to.be.true;
   });
   it("should include a signoff", () => {
     const regex = /best|thank|yours|Sincerely|respectfully|kind/gi;

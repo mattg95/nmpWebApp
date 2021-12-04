@@ -25,7 +25,7 @@ describe("emailGeneratorFuncs", () => {
       );
     });
     it("should return synonyms for a 'Wealthy countries should support...' motivations choice", () => {
-      const regex = /moral duty|ethical obligation/gi;
+      const regex = /moral|ethical/gi;
       expect(regex.test(functionResponse)).to.be.true;
     });
   });
