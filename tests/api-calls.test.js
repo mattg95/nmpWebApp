@@ -1,3 +1,5 @@
+const { expect } = require("chai");
+
 const { getMpByPostcode } = require("../api-calls");
 
 describe("/api/postcode", () => {

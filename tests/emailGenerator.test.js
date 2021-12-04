@@ -153,7 +153,7 @@ describe("generateEmail", () => {
     const regex = /best|thank|yours|Sincerely|respectfully|kind/gi;
     expect(regex.test(randomResponse.body)).to.be.true;
   });
-  it.only("failing test should no include undefined", () => {
+  it("failing test should no include undefined", () => {
     expect(failingResponse.body.search("undefined")).to.equal(-1);
   });
 });
