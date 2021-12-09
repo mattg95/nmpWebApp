@@ -1,4 +1,4 @@
-$primary: #ed4b1a;
+$primary: #bf0628;
 $secondary: #4eb9be;
 
 //#DA6846
@@ -20,7 +20,7 @@ html {
   width: 100%;
   margin: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url("./assets/background-img.jpg");
+    url("./assets/campaign-image-larger.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -38,16 +38,16 @@ html {
 }
 
 .footer {
-  background-color: #232323;
+  background-color: #8c6456;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 16px;
   line-height: 26px;
   text-align: center;
-  color: white;
+  color: #f2f2f2;
   h3 {
     margin-bottom: 20px;
-    color: white;
+    color: #f2f2f2;
     @media only screen and (min-width: 768px) {
       margin-bottom: 40px;
     }
@@ -58,7 +58,7 @@ html {
     padding-bottom: 40px;
   }
   a {
-    color: white;
+    color: #f2f2f2;
     text-decoration: none;
     display: block;
     &:hover {
@@ -87,7 +87,7 @@ h1 {
 
 h2 {
   font-family: "Open Sans", sans-serif;
-  color: white;
+  color: #f2f2f2;
 }
 h1,
 h2,
@@ -104,7 +104,7 @@ div {
 p,
 label {
   font-family: "Poppins", sans-serif;
-  color: white;
+  color: #f2f2f2;
   margin-bottom: 0;
 }
 h1.title {
@@ -127,7 +127,7 @@ h2.secondary-header {
 
 .main-h2 {
   font-size: 3rem;
-  color: white;
+  color: #f2f2f2;
   margin-bottom: 40px;
 }
 
@@ -157,7 +157,7 @@ h2.secondary-header {
 }
 
 .main-cta {
-  white-space: break-spaces;
+  #F2F2F2-space: break-spaces;
 }
 
 .typeform-widget {
@@ -187,7 +187,7 @@ h2.secondary-header {
 }
 
 .typeform-widget::after {
-  background-color: #4eb9be;
+  background-color: #0477bf;
   content: "";
   top: 0px;
   bottom: 0px;
@@ -234,7 +234,7 @@ p.explanation {
   }
 }
 .mpCard {
-  border: 2px solid white;
+  border: 2px solid #f2f2f2;
   margin-top: 15px;
   margin-bottom: 15px;
   padding: 15px;
@@ -270,15 +270,15 @@ button,
 .btn-primary {
   background-color: $primary !important;
   border: 1px solid $primary !important;
-  color: white !important;
+  color: #f2f2f2 !important;
   font-weight: 600 !important;
   &:hover {
     background-color: #db866e !important;
   }
 }
 .btn-outline-primary {
-  color: white !important;
-  border: 1px solid white !important;
+  color: #f2f2f2 !important;
+  border: 1px solid #f2f2f2 !important;
   &:hover {
     background-color: rgba(
       78,
@@ -306,7 +306,7 @@ button,
     }
     button {
       overflow-wrap: break-word;
-      white-space: normal;
+      #F2F2F2-space: normal;
     }
   }
 
@@ -371,18 +371,18 @@ button,
 }
 .mpEmailAddress {
   overflow-wrap: break-word;
-  white-space: normal;
+  #F2F2F2-space: normal;
 }
 
 .emailBox {
   textarea,
   div[editext="view"] {
-    background-color: white;
+    background-color: #f2f2f2;
     border: 1px solid grey;
     margin: 15px 0;
     padding: 20px;
     font-size: 16px;
-    white-space: pre-wrap;
+    #F2F2F2-space: pre-wrap;
   }
   button {
     margin: auto;
@@ -497,7 +497,7 @@ textarea:disabled {
 .about {
   width: 100%;
   background-color: #313147;
-  color: white;
+  color: #f2f2f2;
   padding-bottom: 40px;
   @media only screen and (min-width: 768px) {
     padding-bottom: 80px;
@@ -513,7 +513,7 @@ textarea:disabled {
   p {
     text-align: left;
 
-    color: white;
+    color: #f2f2f2;
     font-size: 16px;
   }
   a {
