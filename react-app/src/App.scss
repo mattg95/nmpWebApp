@@ -1,4 +1,4 @@
-$primary: #ed4b1a;
+$primary: #db1c1c;
 $secondary: #4eb9be;
 
 //#DA6846
@@ -20,7 +20,7 @@ html {
   width: 100%;
   margin: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url("./assets/background-img.jpg");
+    url("./assets/covax-img.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -38,7 +38,7 @@ html {
 }
 
 .footer {
-  background-color: #232323;
+  background-color: #bf7e45;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 16px;
@@ -87,7 +87,7 @@ h1 {
 
 h2 {
   font-family: "Open Sans", sans-serif;
-  color: white;
+  color: #f2e1c2;
 }
 h1,
 h2,
@@ -187,7 +187,7 @@ h2.secondary-header {
 }
 
 .typeform-widget::after {
-  background-color: #4eb9be;
+  background-color: #04adbf;
   content: "";
   top: 0px;
   bottom: 0px;
