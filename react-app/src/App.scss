@@ -1,10 +1,10 @@
-$primary: #bf0628;
+$primary: #f70834;
 $secondary: #4eb9be;
-
-//#DA6846
-//#DB6947
-//#D86746
-//#C15D3F
+$tertiary: #f2e1c2;
+//#bf7e45
+//#f2e1c2
+//#8c6456
+//#593616
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -38,7 +38,7 @@ html {
 }
 
 .footer {
-  background-color: #8c6456;
+  background-color: #232323;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 16px;
@@ -87,13 +87,15 @@ h1 {
 
 h2 {
   font-family: "Open Sans", sans-serif;
-  color: #f2f2f2;
+  color: $tertiary;
+  text-shadow: 1px 1px 2px black;
 }
 h1,
 h2,
 h3,
 p {
   text-align: center;
+  text-shadow: 1px 1px 2px black;
 }
 .error {
   color: red;
@@ -157,7 +159,7 @@ h2.secondary-header {
 }
 
 .main-cta {
-  #F2F2F2-space: break-spaces;
+  white-space: break-spaces;
 }
 
 .typeform-widget {
@@ -306,7 +308,7 @@ button,
     }
     button {
       overflow-wrap: break-word;
-      #F2F2F2-space: normal;
+      white-space: normal;
     }
   }
 
@@ -371,7 +373,7 @@ button,
 }
 .mpEmailAddress {
   overflow-wrap: break-word;
-  #F2F2F2-space: normal;
+  white-space: normal;
 }
 
 .emailBox {
@@ -522,9 +524,6 @@ textarea:disabled {
 }
 
 .nmp-link {
-  p {
-    color: #ed4b1a !important;
-  }
 }
 
 .about {

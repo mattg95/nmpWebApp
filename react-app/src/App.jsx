@@ -141,56 +141,62 @@ const App = () => {
               </div>
             </Col>
           </Row>
-          <>
-            <h2 className="secondary-header">Find Your MP</h2>
+          {positiveTypeFormResponseReturned ? (
+            <>
+              <h2 className="secondary-header">Find Your MP</h2>
 
-            {mpData.name || mpData.full_name ? (
+              {mpData.name || mpData.full_name ? (
+                <Row>
+                  <Col>
+                    <div ref={displayMpRef}>
+                      <DisplayMp mpData={mpData} />
+                    </div>
+                  </Col>
+                </Row>
+              ) : null}
               <Row>
                 <Col>
-                  <div ref={displayMpRef}>
-                    <DisplayMp mpData={mpData} />
+                  <div id="mpForm" className="">
+                    <MpForm passDataUpstream={passDataUpstream} />
                   </div>
                 </Col>
               </Row>
-            ) : null}
-            <Row>
-              <Col>
-                <div id="mpForm" className="">
-                  <MpForm passDataUpstream={passDataUpstream} />
+              {emailVisible ? (
+                <div>
+                  <Row>
+                    <Col>
+                      <div ref={emailBoxRef}>
+                        <TextBox
+                          passDataUpstream={passDataUpstream}
+                          emailBody={emailWithGreeting}
+                          subject={emailSubject}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <div className="">
+                        <SendEmail
+                          mpEmailAddress={mpData.mpEmailAddress}
+                          body={emailWithGreeting}
+                          subject={emailSubject}
+                          passDataUpstream={passDataUpstream}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  {emailSent ? (
+                    <Row>
+                      <Col>
+                        <ShareLinks />
+                      </Col>
+                    </Row>
+                  ) : null}
                 </div>
-              </Col>
-            </Row>
-            <div>
-              <Row>
-                <Col>
-                  <div ref={emailBoxRef}>
-                    <TextBox
-                      passDataUpstream={passDataUpstream}
-                      emailBody={emailWithGreeting}
-                      subject={emailSubject}
-                    />
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <div className="">
-                    <SendEmail
-                      mpEmailAddress={mpData.mpEmailAddress}
-                      body={emailWithGreeting}
-                      subject={emailSubject}
-                      passDataUpstream={passDataUpstream}
-                    />
-                  </div>
-                </Col>
-              </Row>
-              <Row>
-                <Col>
-                  <ShareLinks />
-                </Col>
-              </Row>
-            </div>
-          </>
+              ) : null}
+            </>
+          ) : null}
         </Container>
       </div>
       <div className="footer">
