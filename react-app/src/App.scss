@@ -94,6 +94,7 @@ h2,
 h3,
 p {
   text-align: center;
+  text-shadow: 4px 2px 4px #4a4949;
 }
 .error {
   color: red;
@@ -272,6 +273,8 @@ button,
   border: 1px solid $primary !important;
   color: white !important;
   font-weight: 600 !important;
+  box-shadow: 4px 2px 4px #3d3c3c;
+
   &:hover {
     background-color: #db866e !important;
   }
