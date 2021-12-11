@@ -1,10 +1,11 @@
-$primary: #db1c1c;
+$primary: #ff0000;
 $secondary: #4eb9be;
 
 //#DA6846
 //#DB6947
 //#D86746
 //#C15D3F
+//#F2E1C2
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -20,7 +21,7 @@ html {
   width: 100%;
   margin: 0;
   background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
-    url("./assets/covax-img.jpg");
+    url("./assets/covax-img.jpeg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
