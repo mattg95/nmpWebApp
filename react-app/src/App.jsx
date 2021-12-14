@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import socketIOClient from "socket.io-client";
+import { Container, Row, Col } from "react-bootstrap";
 
 import TypeForm from "./TypeForm";
 import TextBox from "./TextBox";
