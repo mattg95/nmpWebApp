@@ -389,7 +389,7 @@
           "From a moral perspective, it is incumbent on the UK to assist less developed countries to provide vaccines for their people.",
           "Few countries yet have the capacity to vaccinate on the same scale that the UK has; we have an ethical obligation to help countries in this situation.",
           "Many nations do not yet have the ability to vaccinate at the scale of the UK; it is incumbent on us to help less developed countries to resolve this situation.",
-          "Saving lives around the world is of far greater moral importance than further increasing the profits of pharmaceutical companies which have already enjoyed huge success - the UK government must recognise this and act in accordance with its duty, "
+          "Saving lives around the world is of far greater moral importance than further increasing the profits of pharmaceutical companies which have already enjoyed huge success - the UK government must recognise this and act in accordance with its duty."
         ]
       },
       {
@@ -716,9 +716,9 @@
           "I suffered from a COVID infection.",
           "I suffered from a COVID-19 infection.",
           "I suffered from a coronavirus infection.",
-          "I had from a COVID infection.",
-          "I had from a COVID-19 infection.",
-          "I had from a coronavirus infection."
+          "I had a COVID infection.",
+          "I had a COVID-19 infection.",
+          "I had a coronavirus infection."
         ]
       },
       {
@@ -846,10 +846,6 @@
           "I suffered bereavement due to COVID.",
           "I suffered a bereavement from COVID."
         ]
-      },
-      {
-        "response": "Other",
-        "synonyms": []
       }
     ],
     "covidStory": [
@@ -890,7 +886,7 @@
       }
     ],
     "religion": [
-      "I want to add that I am a RELIGIOUS_DENONYM_ADJ, and according to my religion it’s not right to forsake the poor. I don’t know about your religious beliefs, but I hope you will reassure me that you will respect that people in your constituency don’t think the government’s decision to not support the TRIPS waiver is acceptable.",
+      "I want to add that I am a RELIGIOUS_DENONYM_NOUN, and according to my religion it’s not right to forsake the poor. I don’t know about your religious beliefs, but I hope you will reassure me that you will respect that people in your constituency don’t think the government’s decision to not support the TRIPS waiver is acceptable.",
       "Let me please add that I’m a RELIGIOUS_DENONYM_NOUN, and according to my faith it’s wrong to let the global poor down. I can’t be sure about your religious beliefs, however I’d like your reassurance that you will take mine and other peoples of faith in your constituency views into account and support the TRIPS waiver.",
       "I would like to add that I am RELIGIOUS_DENONYM_ADJ, and my religion promotes looking out for others. I would hate for the UK to let people around the world down when it comes to vaccines.",
       "As someone who is RELIGIOUS_DENONYM_ADJ, I am against leaving people behind due to circumstances out of their control. I want to know that you will represent me and other people part of faith communities in your constituency and not let less fortunate people around the globe down.",
@@ -919,19 +915,19 @@
       "I am RELIGIOUS_DENONYM_ADJ and I believe that those who are less fortunate than me should not be left behind.",
       "I am RELIGIOUS_DENONYM_ADJ and I believe that vulnerable people deserve to receive healthcare.",
       "I am RELIGIOUS_DENONYM_ADJ and I believe that healthcare should be extended to the global poor.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that we do not to forsake the poor and ensure they all get access to vaccines.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that we look after the global poor and ensure they all get access to vital healthcare.",
-      "As a RELIGIOUS_DENONYM_ADJ,I advocate that we look out for others.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that we care for the vulnerable and ensure they get access to vaccines or any crucial healthcare that they need.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that we don’t leave people behind due to circumstances beyond their control.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that people who are less fortunate are helped.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that we do not allow the global poor to suffer from COVID.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that we do not turn our backs on the global poor, but rather ensure they are protected from COVID, just as we are.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that we help people in poverty.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that those less fortunate than me are not left behind.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that vulnerable people are cared for.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that healthcare is extended to the global poor.",
-      "As a RELIGIOUS_DENONYM_ADJ, I advocate that unfortunate people in poverty are helped by letting them have access to vaccines."
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that we do not to forsake the poor and ensure they all get access to vaccines.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that we look after the global poor and ensure they all get access to vital healthcare.",
+      "As a RELIGIOUS_DENONYM_NOUN,I advocate that we look out for others.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that we care for the vulnerable and ensure they get access to vaccines or any crucial healthcare that they need.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that we don’t leave people behind due to circumstances beyond their control.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that people who are less fortunate are helped.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that we do not allow the global poor to suffer from COVID.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that we do not turn our backs on the global poor, but rather ensure they are protected from COVID, just as we are.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that we help people in poverty.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that those less fortunate than me are not left behind.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that vulnerable people are cared for.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that healthcare is extended to the global poor.",
+      "As a RELIGIOUS_DENONYM_NOUN, I advocate that unfortunate people in poverty are helped by letting them have access to vaccines."
     ],
     "conservative": [
       {

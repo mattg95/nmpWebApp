@@ -10,6 +10,7 @@ const otherReligionResponse = require("./mockTypeformResponses/OtherReligion.jso
 const nonToryResponse = require("./mockTypeformResponses/NotTory.json");
 const labourMpResponse = require("./mockTypeformResponses/LabourMP.json");
 const nonValidPostcodeResponse = require("./mockTypeformResponses/NonValidPostcode.json");
+const failingTest = require("./mockTypeformResponses/failing.json");
 
 const mockTypeformResponses = [];
 var normalizedPath = require("path").join(__dirname, "mockTypeformResponses");
@@ -50,6 +51,7 @@ describe("generateEmail", () => {
     nonValidPostcodeEmail = await generateEmail(
       nonValidPostcodeResponse.form_response
     );
+    failingResponse = await generateEmail(failingTest.form_response);
   });
   it("should return an object with keys 'body' and 'subject'", () => {
     expect(randomResponse).to.have.keys(
@@ -150,5 +152,8 @@ describe("generateEmail", () => {
   it("should include a signoff", () => {
     const regex = /best|thank|yours|Sincerely|respectfully|kind/gi;
     expect(regex.test(randomResponse.body)).to.be.true;
+  });
+  it.only("failing test should no include undefined", () => {
+    expect(failingResponse.body.search("undefined")).to.equal(-1);
   });
 });

@@ -1,10 +1,11 @@
-$primary: #ed4b1a;
+$primary: #ff395d;
 $secondary: #4eb9be;
 
 //#DA6846
 //#DB6947
 //#D86746
 //#C15D3F
+//#F2E1C2
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -13,27 +14,32 @@ $secondary: #4eb9be;
 html {
   scroll-behavior: smooth;
 }
+.root {
+  min-height: 100%;
+}
 .main {
   width: 100%;
   margin: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url("./assets/covax-img.jpeg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: auto 100vh;
+  background-position: center top;
+  padding-bottom: 40px;
+  min-height: 85vh;
+
   @media only screen and (min-width: 768px) {
     background-size: cover;
-  }
-  background-position: center top;
-}
-
-.main {
-  padding-bottom: 40px;
-  @media only screen and (min-width: 768px) {
     padding-bottom: 80px;
   }
 }
 
 .footer {
-  background-color: #4864b3;
+  background-color: #023859;
   padding-top: 30px;
   padding-bottom: 30px;
   font-size: 16px;
@@ -77,18 +83,19 @@ html {
 
 h1 {
   font-family: "Open Sans", sans-serif;
-  color: #ff0202;
+  color: $primary;
 }
 
 h2 {
   font-family: "Open Sans", sans-serif;
-  color: #4864b3;
+  color: #f2e1c2;
 }
 h1,
 h2,
 h3,
 p {
   text-align: center;
+  text-shadow: 4px 2px 4px #4a4949;
 }
 .error {
   color: red;
@@ -108,20 +115,20 @@ h1.title {
   @media only screen and (min-width: 768px) {
     padding-top: 60px;
     margin-bottom: 40px;
-    font-size: 5rem;
+    font-size: 5.5rem;
     line-height: 8rem;
   }
-  font-size: 4rem;
+  font-size: 5rem;
   line-height: 6.5rem;
 }
 
 h2.secondary-header {
-  font-size: 3rem;
+  font-size: 3.5rem;
   line-height: 6rem;
 }
 
 .main-h2 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: white;
   margin-bottom: 40px;
 }
@@ -168,7 +175,7 @@ h2.secondary-header {
     display: none;
   }
   @media only screen and (min-width: 768px) {
-    height: 1000px;
+    height: 140vh;
     margin-top: 80px;
     margin-bottom: 80px;
   }
@@ -181,7 +188,7 @@ h2.secondary-header {
 }
 
 .typeform-widget::after {
-  background-color: #4864b3;
+  background-color: #04adbf;
   content: "";
   top: 0px;
   bottom: 0px;
@@ -206,6 +213,13 @@ h2.secondary-header {
 .a2a_kit {
   display: flex;
   justify-content: space-evenly;
+}
+
+p.intro {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  margin-bottom: 40px;
+  display: block;
 }
 
 p.explanation {
@@ -260,6 +274,8 @@ button,
   border: 1px solid $primary !important;
   color: white !important;
   font-weight: 600 !important;
+  box-shadow: 4px 2px 4px #3d3c3c;
+
   &:hover {
     background-color: #db866e !important;
   }
@@ -505,6 +521,12 @@ textarea:disabled {
   }
   a {
     color: #4eb9be;
+  }
+}
+
+.nmp-link {
+  p {
+    color: #ed4b1a !important;
   }
 }
 

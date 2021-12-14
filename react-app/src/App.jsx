@@ -8,6 +8,9 @@ import TextBox from "./TextBox";
 import MpForm from "./MpForm";
 import DisplayMp from "./DisplayMp";
 import SendEmail from "./SendEmail";
+import IntroContent from "./IntroContent";
+import Footer from "./Footer";
+import ShareLinks from "./ShareLinks";
 
 import "./App.scss";
 
@@ -57,9 +60,6 @@ const App = () => {
           ...state,
           generatedEmailBody: generatedEmail.body,
           emailSubject: generatedEmail.subject,
-          // mpData: generatedEmail.mpData,
-          // greeting: generatedEmail.greeting,
-          // emailWithGreeting: generatedEmail.greeting + generatedEmail.body,
           positiveTypeFormResponseReturned: generatedEmail.supportEquity,
         });
       }
@@ -127,42 +127,87 @@ const App = () => {
   };
 
   return (
-    <div className="main">
-      <div className="typeform">
-        <TypeForm passDataUpstream={passDataUpstream} isMobile={isMobile} />
+    <div className="root">
+      <div className="main">
+        <Container>
+          <Row>
+            <Col>
+              <IntroContent />
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <div className="typeform">
+                <TypeForm
+                  passDataUpstream={passDataUpstream}
+                  isMobile={isMobile}
+                />
+              </div>
+            </Col>
+          </Row>
+          {positiveTypeFormResponseReturned ? (
+            <>
+              <h2 className="secondary-header">Find Your MP</h2>
+
+              {mpData.name || mpData.full_name ? (
+                <Row>
+                  <Col>
+                    <div ref={displayMpRef}>
+                      <DisplayMp mpData={mpData} />
+                    </div>
+                  </Col>
+                </Row>
+              ) : null}
+              <Row>
+                <Col>
+                  <div id="mpForm" className="">
+                    <MpForm passDataUpstream={passDataUpstream} />
+                  </div>
+                </Col>
+              </Row>
+              {emailVisible ? (
+                <div>
+                  <Row>
+                    <Col>
+                      <div ref={emailBoxRef}>
+                        <TextBox
+                          passDataUpstream={passDataUpstream}
+                          emailBody={emailWithGreeting}
+                          subject={emailSubject}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col>
+                      <div className="">
+                        <SendEmail
+                          mpEmailAddress={mpData.mpEmailAddress}
+                          body={emailWithGreeting}
+                          subject={emailSubject}
+                          passDataUpstream={passDataUpstream}
+                        />
+                      </div>
+                    </Col>
+                  </Row>
+                  {emailSent ? (
+                    <Row>
+                      <Col>
+                        <ShareLinks />
+                      </Col>
+                    </Row>
+                  ) : null}
+                </div>
+              ) : null}
+            </>
+          ) : null}
+        </Container>
       </div>
-
-      {positiveTypeFormResponseReturned && (
-        <>
-          <div ref={displayMpRef}>
-            <DisplayMp mpData={mpData} />
-          </div>
-
-          <div id="mpForm" className="">
-            <MpForm passDataUpstream={passDataUpstream} />
-          </div>
-          {emailVisible && (
-            <div>
-              <div ref={emailBoxRef}>
-                <TextBox
-                  passDataUpstream={passDataUpstream}
-                  emailBody={emailWithGreeting}
-                  subject={emailSubject}
-                />
-              </div>
-              <div className="">
-                <SendEmail
-                  mpEmailAddress={mpData.mpEmailAddress}
-                  body={emailWithGreeting}
-                  subject={emailSubject}
-                  passDataUpstream={passDataUpstream}
-                />
-              </div>
-              {emailSent && <h2 className="secondary-header">Thankyou!</h2>}
-            </div>
-          )}
-        </>
-      )}
+      <div className="footer">
+        <Container>
+          <Footer />
+        </Container>
+      </div>
     </div>
   );
 };

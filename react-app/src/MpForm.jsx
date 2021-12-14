@@ -50,7 +50,8 @@ const MpForm = ({ passDataUpstream }) => {
       ...state,
       [e.target.name]: value,
     });
-    const postCodeRegex = /([A-Z][A-HJ-Y]?[0-9][A-Z0-9]? ?[0-9][A-Z]{2}|GIR ?0A{2})$/;
+    const postCodeRegex =
+      /([A-Z][A-HJ-Y]?[0-9][A-Z0-9]? ?[0-9][A-Z]{2}|GIR ?0A{2})$/;
     if (value && state.bots !== "on") {
       if (value.length > 5) {
         if (postCodeRegex.test(value.toUpperCase())) {
@@ -64,19 +65,6 @@ const MpForm = ({ passDataUpstream }) => {
 
   return (
     <div>
-      <div className="button-container" id="postcodeDropdown">
-        <button
-          className="btn btn-lg cta btn-primary right-button "
-          type="submit"
-          onClick={(e) => {
-            e.preventDefault();
-            setState({ ...state, dropDownOpen: false });
-            passDataUpstream({ emailVisible: true });
-          }}
-        >
-          Continue with this MP
-        </button>
-      </div>
       <form
         className="get-MP-form"
         id="postcodeDropdown"
@@ -102,6 +90,20 @@ const MpForm = ({ passDataUpstream }) => {
           {isLoading && <div className="loading">Fetching your MP...</div>}
         </div>
       </form>
+
+      <div className="button-container" id="postcodeDropdown">
+        <button
+          className="btn btn-lg cta btn-primary right-button "
+          type="submit"
+          onClick={(e) => {
+            e.preventDefault();
+            setState({ ...state, dropDownOpen: false });
+            passDataUpstream({ emailVisible: true });
+          }}
+        >
+          Continue with this MP
+        </button>
+      </div>
     </div>
   );
 };

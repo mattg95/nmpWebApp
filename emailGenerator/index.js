@@ -16,9 +16,6 @@ const { questionKeys } = require("./keys");
 const generateEmail = ({ answers, definition: { fields } }) => {
   let supportEquity = true;
   let memberOfConservatives = false;
-  const postcode = answers.find(
-    ({ field: { id } }) => id === questionKeys.postcode
-  );
 
   const emailMap = new Map([
     ["conservative", ""],
@@ -146,26 +143,10 @@ const generateEmail = ({ answers, definition: { fields } }) => {
   }
   const responseData = {
     supportEquity: true,
-    // mpData: mp,
-    // greeting: createGreeting(mp),
     subject: getRandomResponse(subject),
     body: emailbodyStr,
   };
   return Promise.resolve(responseData);
-
-  // return getMpByPostcode(postcode.text).then((mp) => {
-  //   if (memberOfConservatives && mp.party === "Conservative") {
-  //     const choiceIndex = getAnswerIndex(
-  //       questionKeys.conservative,
-  //       fields,
-  //       answers
-  //     );
-  //     const choiceObj = survey.conservative[choiceIndex];
-  //     if (choiceObj.synonyms.length > 0) {
-  //       emailMap.set("conservative", getRandomResponse(choiceObj.synonyms));
-  //     }
-  //   }
-  // });
 };
 
 module.exports = { generateEmail };
