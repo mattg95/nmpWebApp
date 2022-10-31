@@ -62,3 +62,95 @@ We have a Heroku pipeline set up, with a staging site (https://point-7-staging.h
 - Heroku, checking the site can be built if the branch is merges. All tests in the `./tests` folder will also be run. (This check takes around 5 minutes).
 
 Please check with Matt if you have not merged a pull reuqest before, or if either of these checks are failing. Once the branch is merged into master, an updated build will automatically be run in the staging site. Heroku will send a notification to slack when the build is done. To see site statuses, log into the Heroku dashboard (ask Matt for login details). The Heorku dashboard also has the 'promote to production' button, which moves the staging site to production.
+
+
+
+# AWS EC2 deployment
+
+1. Go to www.aws.amazon.com and sign in to your console
+2. Select services tab at the top, then select EC2 under Compute, and this will bring up EC2 dashboard
+
+[![image.png](https://i.postimg.cc/cJwSkJP6/image.png)](https://postimg.cc/zLz6Vqz1)
+
+3. Select Launch Instance
+4. There you should enter the name of your instance, set Amazon Machine Image (AMI) to Ubuntu, use the default Instance type (t2.micro). You can use defaults for the rest (Memory, HD) based upon your project needs.
+5. Now you have to create a key pair in order to be able to connect to your instance. Here you should enter the name, and in case you are using PuTTY select the .ppk private key file format. Then you should save the key file on your computer
+
+[![image.png](https://i.postimg.cc/VkTHM2Bz/image.png)](https://postimg.cc/yDmPCQbG)
+
+6. For Network settings you should use the default settings, except for `Allow HTTP/HTTPs traffic from the internet` checkboxes, you need to enable them
+
+[![image.png](https://i.postimg.cc/Hk2yFp5W/image.png)](https://postimg.cc/DSS0X3BR)
+
+7. The remaining options like `Configure storage`, `Advanced details` should stay as default. So, you can click `Launch instance` now, then go to `Instances` tab and wait for the instance to get running
+8. In order to make the instance fully public, you would have to go to `Security` tab, select the attached secutiry group
+
+[![image.png](https://i.postimg.cc/q7yhMdDS/image.png)](https://postimg.cc/rdyFQ7kN)
+
+9. There click `Edit inbound rules` and add a new All traffic rule for initial setup (but it is better to use the existing 80/443 rules and add 2 new ones - HTTP 3000, HTTTP 5000) with '0.0.0.0/0' CIDR block. It is advised for SSH and other ports you only allow access from specified addresses but this is up to you.
+
+[![image.png](https://i.postimg.cc/k5JG9t86/image.png)](https://postimg.cc/mPnBykmB)
+
+10. If you see that your EC2 instanse has running state, click `Connect` and go to `SSH client` (alternatively, [you can use PuTTY](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/putty.html). There you should find the steps to connect to your instance using terminal. Please make sure you are in the same folder in terminal where your key .pem file is located
+
+[![image.png](https://i.postimg.cc/BQ96hzhn/image.png)](https://postimg.cc/fkCDy8nG)
+
+11. Once you are connected, you can see that there are no files and all the required tools have to be installed
+12. First of all, install the `npm`: 
+- Run `sudo apt update` (download package information from all configured sources)
+- Run `sudo apt install npm`
+13. Then you would need `git` for cloning the repository to your EC2 machine:
+- `sudo apt install git`
+- `git clone <repository_url>`
+14. Now you should go to the cloned repository by running `cd <repository_name>` and start the application (see Setup above):
+- `npm i`
+- `npm run install-react`
+15. But now it is better to avoid the 3rd command (`npm run dev`) and use the PM2 tool instead. It helps facilitate production deployments and enables you to keep running applications alive indefinitely. So, you have to install PM2 and run the application using it:
+- `sudo npm install pm2 -g`
+- `pm2 start npm --name "your-app-name" -- run "dev"`
+16. In order to make sure your application is working you should go to either `Public IPv4 address` or `Public IPv4 DNS` address and in our case the `:3000` ending for the port (make sure you use the 'http', because the 'https' is not supported yet)
+
+[![image.png](https://i.postimg.cc/rssqsvN5/image.png)](https://postimg.cc/gXCCBt50)
+
+Example - `http://ec2-54-212-180-210.us-west-2.compute.amazonaws.com:3000`
+
+17. NGINX or AWS Load Balancer are the tools required for having our application running on default 80/443 ports (without any ':3000' in URL). They would allow you to add SSL certificates and have your application running on the HTTPS. Let us set up the most recommended option - AWS Load Balancer. In the same EC2 section you were in, you should find the `Load Balancers` at the left bottom
+
+[![image.png](https://i.postimg.cc/qRQt2ZMB/image.png)](https://postimg.cc/CBBLg7q9)
+
+18. Then click `Create Load Balancer` and select the `Application Load Balancer`.
+
+![image](https://user-images.githubusercontent.com/60970685/196981023-186835b1-2a22-4ec2-a585-f26e1b02f914.png)
+
+19. Enter the load balancer name and leave basic configuration as default
+
+[![image.png](https://i.postimg.cc/tJwdZtbg/image.png)](https://postimg.cc/GTPT6DH0)
+
+20. For network settings, use the default VPC and enable at least 2 availability zones (us-west-2a and us-west-2b in my case)
+
+[![image.png](https://i.postimg.cc/RFz0gg1t/image.png)](https://postimg.cc/PL2hxzRf)
+
+21. Use the default security group, and for Listener HTTP:80 create a new target group (to redirect all the HTTP:80 requests to our instance)
+
+![image](https://user-images.githubusercontent.com/60970685/196981544-b9547438-9a3e-41a8-9233-e96f9ff405fa.png)
+
+22. You should use all the default settings, except for Port - set it to 3000
+[![image.png](https://i.postimg.cc/fTk0tg8W/image.png)](https://postimg.cc/QHGMvSLv)
+
+23. The next step is to select our instance, click `Include as pending below` and `Create target group`:
+
+[![image.png](https://i.postimg.cc/25nHp5Wt/image.png)](https://postimg.cc/HJs0XdB0)
+
+24. Now go back to the `Load balancer` tab and select the new target group
+
+[![image.png](https://i.postimg.cc/R08nT1q5/image.png)](https://postimg.cc/yJmd1ZFv)
+
+25.  If we wanted to allow HTTPS traffic, we would add an HTTPS:443 listener and configure SSL certificates for it
+26.  Everything is set up and you can click `Create load balancer`. In order to find the IP address of it, go to `Network interfaces` and find the one with the ELB app/<load_balancer_name> description. You can see the IPv4 with it.
+
+[![image.png](https://i.postimg.cc/Th89HMwx/image.png)](https://postimg.cc/y3PckGcp)
+
+[![image.png](https://i.postimg.cc/638jqh48/image.png)](https://postimg.cc/HcC4PX2m)
+
+27. That is it, in order to test the application, we should open the load balancer address, in my case - `http://44.242.131.253` and see that it is working without any additional ports.
+
